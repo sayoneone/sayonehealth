@@ -1,0 +1,14 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+.swiftpm/
+Packages/*/.build/
+.build/
+# Local signing overrides (team id, bundle prefix)
+Config/Local.xcconfig
+# macOS
+.DS_Store
