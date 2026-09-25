@@ -1,0 +1,100 @@
+name: CI
+on:
+  push:
+    branches: [main, 'lane/**', 'claude/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  linux:
+    name: Linux (lint, parse, SayoneCore tests)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - run: swift --version
+      - name: Lint
+        run: python3 scripts/lint.py
+      - name: String catalog up to date
+        run: python3 scripts/build_strings.py --check
+      - name: Swift syntax (parse only, no SDK)
+        run: find Shared iOS Watch -name '*.swift' -print0 | xargs -0 -n 40 swiftc -parse
+      - name: SayoneCore tests
+        run: swift test --package-path Packages/SayoneCore
+
+  apple:
+    name: macOS (xcodegen + xcodebuild, unsigned)
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      XCODEGEN_VERSION: "2.46.0"
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode 26
+        run: |
+          XC="$(ls -d /Applications/Xcode_26*.app | sort -V | tail -1)"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
+          xcodebuild -showsdks | grep -E 'iphone|watch' || true
+          xcrun simctl list runtimes || true
+          defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool YES
+      - name: Install XcodeGen (pinned release zip, Homebrew fallback)
+        run: |
+          if curl -fsSL --retry 3 -o "$RUNNER_TEMP/xg.zip" "https://github.com/yonaskolb/XcodeGen/releases/download/${XCODEGEN_VERSION}/xcodegen.zip" \
+             && unzip -q "$RUNNER_TEMP/xg.zip" -d "$RUNNER_TEMP" \
+             && "$RUNNER_TEMP/xcodegen/bin/xcodegen" --version; then
+            echo "$RUNNER_TEMP/xcodegen/bin" >> "$GITHUB_PATH"
+          else
+            echo "::warning::XcodeGen ${XCODEGEN_VERSION} zip download failed; falling back to brew install xcodegen"
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install xcodegen
+            xcodegen --version
+          fi
+      - name: Generate project
+        run: |
+          xcodegen generate
+          P=SayoneHealth.xcodeproj/project.pbxproj
+          test "$(grep -cE '^[[:space:]]*[0-9A-F]{24} /\* Embed Watch Content \*/ = \{' $P)" = 1
+          test "$(grep -cE '^[[:space:]]*[0-9A-F]{24} /\* Embed Foundation Extensions \*/ = \{' $P)" = 2
+          git diff --stat -- SayoneHealth.xcodeproj iOS Watch || true
+      - name: SayoneCore tests (macOS)
+        run: swift test --package-path Packages/SayoneCore
+      - name: Build iOS scheme (iOS app + iOS widgets + embedded watch app + watch widgets) for iOS Simulator
+        run: |
+          set -o pipefail
+          xcodebuild build -project SayoneHealth.xcodeproj -scheme SayoneHealth -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee "$RUNNER_TEMP/ios.log" | xcbeautify --renderer github-actions
+      - name: Build watch scheme standalone for watchOS Simulator
+        if: ${{ !cancelled() }}
+        run: |
+          set -o pipefail
+          xcodebuild build -project SayoneHealth.xcodeproj -scheme SayoneHealthWatch -configuration Debug \
+            -destination 'generic/platform=watchOS Simulator' -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee "$RUNNER_TEMP/watch.log" | xcbeautify --renderer github-actions
+      - name: App Intents metadata check
+        if: ${{ !cancelled() }}
+        run: python3 scripts/check_appintents.py "$RUNNER_TEMP/dd" "$RUNNER_TEMP/ios.log" "$RUNNER_TEMP/watch.log"
+      - name: Device build, unsigned (arm64_32 watch + INTENTS_IN_APP_PROCESS escape hatch) — advisory
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          xcodebuild build -project SayoneHealth.xcodeproj -scheme SayoneHealth -configuration Debug \
+            -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/dd-dev" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" COMPILER_INDEX_STORE_ENABLE=NO \
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) DEBUG INTENTS_IN_APP_PROCESS' \
+            2>&1 | tee "$RUNNER_TEMP/device.log" | xcbeautify --renderer github-actions
+      - name: Error digest
+        if: failure()
+        run: grep -hE "error:|appintentsmetadataprocessor|No AppIntents metadata" "$RUNNER_TEMP"/*.log | sort -u | head -150 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-logs
+          path: ${{ runner.temp }}/*.log

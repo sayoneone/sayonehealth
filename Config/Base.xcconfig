@@ -1,0 +1,8 @@
+// Change BUNDLE_ID_PREFIX and APP_GROUP_ID together (e.g. in Local.xcconfig) if the ID is taken on your team.
+BUNDLE_ID_PREFIX = com.sayoneone.sayonehealth
+APP_GROUP_ID = group.com.sayoneone.sayonehealth
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
+CODE_SIGN_STYLE = Automatic
+DEVELOPMENT_TEAM =
+#include? "Local.xcconfig"
