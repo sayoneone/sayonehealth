@@ -93,6 +93,13 @@ jobs:
       - name: Error digest
         if: failure()
         run: grep -hE "error:|appintentsmetadataprocessor|No AppIntents metadata" "$RUNNER_TEMP"/*.log | sort -u | head -150 || true
+      - name: Warnings and App Intents digest
+        if: always()
+        run: |
+          echo "=== Swift/Xcode warnings (unique, first 120) ==="
+          grep -hE "warning:" "$RUNNER_TEMP"/*.log | grep -v "IDEBuildingContinueBuildingAfterErrors" | sed -E 's#^/Users/runner/work/[^ ]*/sayonehealth/##' | sort -u | head -120 || true
+          echo "=== App Intents metadata check (verbose) ==="
+          python3 scripts/check_appintents.py "$RUNNER_TEMP/dd" "$RUNNER_TEMP/ios.log" "$RUNNER_TEMP/watch.log" || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
