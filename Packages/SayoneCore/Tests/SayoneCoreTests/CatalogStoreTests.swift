@@ -61,6 +61,22 @@ final class CatalogStoreTests: TemporaryDirectoryTestCase {
         XCTAssertEqual(try Data(contentsOf: backupURL), garbage, "the corrupt file replaces any old backup")
     }
 
+    /// After a recovery the phone keeps returning a revision newer than anything the watch holds, on every
+    /// later load (not only the first), so the default catalog it pushes is accepted.
+    func testAuthorRecoveryRevisionIsStableOnLaterLoads() throws {
+        try Data("{broken".utf8).write(to: fileURL)
+        let store = CatalogStore(fileURL: fileURL, role: .author)
+        let first = store.load(now: now)
+        let later = store.load(now: now.addingTimeInterval(3600))
+        let evenLater = store.load(now: now.addingTimeInterval(7200))
+        XCTAssertEqual(later.revision, evenLater.revision)
+        XCTAssertLessThanOrEqual(abs(later.revision - first.revision), 1000)
+        let watchCatalog = Catalog.makeDefault(revision: first.revision - 60_000, now: now)
+        XCTAssertTrue(CatalogSyncPayload.shouldApply(received: later, current: watchCatalog))
+        XCTAssertEqual(CatalogStore(fileURL: fileURL, role: .replica).load(now: now).revision, 0,
+                       "replicas never use the backup date")
+    }
+
     func testCorruptFileForReplicaUsesRevisionZero() throws {
         try Data("[]".utf8).write(to: fileURL)
         let c = CatalogStore(fileURL: fileURL, role: .replica).load(now: now)

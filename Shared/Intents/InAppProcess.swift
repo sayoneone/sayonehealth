@@ -4,4 +4,5 @@
 import AppIntents
 extension QuickLogIntent: LiveActivityIntent {}
 extension UndoLastIntent: LiveActivityIntent {}
+extension UndoEntryIntent: LiveActivityIntent {}
 #endif
