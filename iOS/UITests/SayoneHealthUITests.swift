@@ -35,8 +35,10 @@ final class SayoneHealthUITests: XCTestCase {
         let before = progress.label
         snapshot("01-today-before", app)
 
-        let preset = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "+250")).firstMatch
-        XCTAssertTrue(preset.waitForExistence(timeout: 5), "a «+250 мл» preset tile should exist")
+        // Tiles are labelled with the preset title, e.g. «Вода · 250 мл» (no-break space before «мл»).
+        let preset = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@ AND label CONTAINS %@",
+                                                      "Вода", "250")).firstMatch
+        XCTAssertTrue(preset.waitForExistence(timeout: 5), "the «Вода · 250 мл» preset tile should exist")
         preset.tap()
 
         let toast = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Записано")).firstMatch

@@ -208,8 +208,13 @@ jobs:
           RU=(-AppleLanguages "(ru)" -AppleLocale ru_RU)
           echo "launching $(date)"; T 120 xcrun simctl launch "$WATCH" "$BID.watchkitapp" "${RU[@]}" || echo "::warning::watch launch timed out"; sleep 12
           T 60 xcrun simctl io "$WATCH" screenshot wshots/watch-1-root.png
-          T 60 xcrun simctl openurl "$WATCH" "sayonehealth://log?drink=water&ml=500"; sleep 5
-          T 60 xcrun simctl io "$WATCH" screenshot wshots/watch-2-confirm-deeplink.png
+          # watchOS simulators refuse `simctl openurl` for custom schemes (LSApplicationWorkspace error 115);
+          # on a real watch the deep link arrives through the complication's widgetURL.
+          if T 60 xcrun simctl openurl "$WATCH" "sayonehealth://log?drink=water&ml=500"; then
+            sleep 5; T 60 xcrun simctl io "$WATCH" screenshot wshots/watch-2-confirm-deeplink.png
+          else
+            echo "::notice::openurl is not supported on the watchOS simulator; skipped the deep-link screenshot"
+          fi
           sleep 5
           if T 60 xcrun simctl spawn "$WATCH" launchctl list | grep -q "$BID.watchkitapp"; then echo "Watch app alive: YES"; else echo "::error::Watch app is not running (crash?)"; echo DEAD > wshots/watch-DEAD; fi
       - name: Crash reports
