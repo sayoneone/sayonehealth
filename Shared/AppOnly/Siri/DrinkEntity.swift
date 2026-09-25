@@ -12,14 +12,25 @@ struct DrinkEntity: AppEntity {
     let accusative: String
     let symbol: String
     let defaultVolumeML: Int
+    /// Names in every supported language (nominative, accusative, lowercased): Siri's language can differ
+    /// from the UI language, e.g. English Siri on a Russian iPhone must still match "Cola Zero".
+    let spokenNames: [String]
     var displayRepresentation: DisplayRepresentation {
         DisplayRepresentation(title: "\(name)", subtitle: nil,
                               image: DisplayRepresentation.Image(systemName: symbol),
-                              synonyms: ["\(accusative)", "\(name.lowercased())"])
+                              synonyms: spokenNames.map { spoken -> LocalizedStringResource in "\(spoken)" })
     }
     init(_ drink: Drink) {
         id = drink.id; name = drink.displayName; accusative = drink.accusativeName
         symbol = drink.symbol; defaultVolumeML = drink.defaultVolumeML
+        var names: [String] = []
+        for lang in AppLanguage.allCases {
+            for spoken in [drink.name(lang), drink.accusative(lang), drink.name(lang).lowercased()]
+            where !spoken.isEmpty && !names.contains(spoken) && spoken != drink.displayName {
+                names.append(spoken)
+            }
+        }
+        spokenNames = names
     }
 }
 

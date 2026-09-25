@@ -68,9 +68,6 @@ private struct WatchHomeList: View {
     var body: some View {
         List {
             TodayRingRow(summary: model.summary)
-            if let toast = model.toast {
-                LoggedBanner(toast: toast) { undo(toast) }
-            }
             if model.needsHealthOnboarding {
                 NavigationLink(value: WatchRoute.health) {
                     WatchHealthRow()
@@ -83,6 +80,15 @@ private struct WatchHomeList: View {
             todaySection
             NavigationLink(value: WatchRoute.complicationHelp) {
                 Label("How to add to the watch face", systemImage: "applewatch.watchface")
+            }
+        }
+        // The banner floats over the bottom edge instead of being a List row, so the preset rows never
+        // shift under the finger: a quick second tap on a preset logs again instead of hitting Undo.
+        .safeAreaInset(edge: .bottom) {
+            if let toast = model.toast {
+                LoggedBanner(toast: toast) { undo(toast) }
+                    .padding(.horizontal, 4)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
         .animation(.default, value: model.toast)

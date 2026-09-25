@@ -32,7 +32,7 @@ struct HistoryView: View {
     /// totals when the Health query fails, which happens when Health is unavailable or access was
     /// never requested; mirror that here to show the label.
     private var isFallback: Bool {
-        model.healthAuth == .unavailable || model.healthAuth == .notDetermined
+        model.healthAuth != .authorized
     }
 
     private var chartSection: some View {

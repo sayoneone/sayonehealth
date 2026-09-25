@@ -5,6 +5,7 @@ import SayoneCore
 /// Explains the app and asks for Health access (write AND read Water).
 struct OnboardingView: View {
     @EnvironmentObject private var model: AppModel
+    @Environment(\.openURL) private var openURL
     @AppStorage("onboardingDismissed") private var onboardingDismissed: Bool = false
     @State private var isRequesting: Bool = false
 
@@ -14,6 +15,9 @@ struct OnboardingView: View {
                 header
                 features
                 readHint
+                if model.healthAuth == .denied {
+                    deniedHint
+                }
             }
             .padding(.horizontal, 24)
             .padding(.top, 48)
@@ -61,6 +65,19 @@ struct OnboardingView: View {
         .background(Color.blue.opacity(0.1), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
+    private var deniedHint: some View {
+        Label {
+            Text("If access is denied, allow it in Settings → Privacy & Security → Health → SayoneHealth.")
+                .font(.callout)
+        } icon: {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundStyle(.orange)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.orange.opacity(0.12), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
     private var buttons: some View {
         VStack(spacing: 12) {
             Button {
@@ -84,6 +101,11 @@ struct OnboardingView: View {
     }
 
     private func allow() {
+        // HealthKit never shows its sheet twice: once denied, the only way back is Settings.
+        if model.healthAuth == .denied, let settings = URL(string: "app-settings:") {
+            openURL(settings)
+            return
+        }
         isRequesting = true
         Task {
             await model.requestHealthAccess()

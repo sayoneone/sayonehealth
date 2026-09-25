@@ -8,6 +8,11 @@ struct SettingsView: View {
     @EnvironmentObject private var model: AppModel
     @Environment(\.openURL) private var openURL
     @State private var sentToWatch: Bool = false
+    // Real bindings for the Siri tips' close buttons (a constant binding makes the "x" do nothing).
+    @AppStorage("settings.siriTip.logWater") private var tipLogWater: Bool = true
+    @AppStorage("settings.siriTip.logDrink") private var tipLogDrink: Bool = true
+    @AppStorage("settings.siriTip.today") private var tipToday: Bool = true
+    @AppStorage("settings.siriTip.undo") private var tipUndo: Bool = true
 
     var body: some View {
         Form {
@@ -160,18 +165,26 @@ struct SettingsView: View {
 
     private var siriSection: some View {
         Section {
-            SiriTipView(intent: LogWaterIntent())
-                .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
-                .listRowBackground(Color.clear)
-            SiriTipView(intent: LogDrinkIntent())
-                .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
-                .listRowBackground(Color.clear)
-            SiriTipView(intent: TodayTotalIntent())
-                .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
-                .listRowBackground(Color.clear)
-            SiriTipView(intent: UndoLastIntent())
-                .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
-                .listRowBackground(Color.clear)
+            if tipLogWater {
+                SiriTipView(intent: LogWaterIntent(), isVisible: $tipLogWater)
+                    .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                    .listRowBackground(Color.clear)
+            }
+            if tipLogDrink {
+                SiriTipView(intent: LogDrinkIntent(), isVisible: $tipLogDrink)
+                    .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                    .listRowBackground(Color.clear)
+            }
+            if tipToday {
+                SiriTipView(intent: TodayTotalIntent(), isVisible: $tipToday)
+                    .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                    .listRowBackground(Color.clear)
+            }
+            if tipUndo {
+                SiriTipView(intent: UndoLastIntent(), isVisible: $tipUndo)
+                    .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                    .listRowBackground(Color.clear)
+            }
             ShortcutsLink()
                 .frame(maxWidth: .infinity)
                 .listRowBackground(Color.clear)

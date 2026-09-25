@@ -193,6 +193,9 @@ final class AppModel: ObservableObject {
     }
 
     func delete(_ row: TodayRow) async {
+        if toast?.entryID == row.id {
+            toast = nil
+        }
         let outcome = await DrinkLogger.delete(entryID: row.id, isLocal: row.isLocal)
         report(outcome)
         if !row.isLocal && outcome == .deleted {
@@ -222,7 +225,12 @@ final class AppModel: ObservableObject {
     // MARK: - History
 
     func history(days: Int) async -> [DayTotal] {
-        await TodayService.history(days: days)
+        // Without write access HealthKit may return empty days instead of failing; the journal is the
+        // better source then (HistoryView labels it «Только записи с этого устройства»).
+        guard HealthGateway.shared.writeAuth(.water) == .authorized else {
+            return TodayMath.localDailyTotals(AppGroup.journal.all(), days: max(days, 1), now: Date())
+        }
+        return await TodayService.history(days: days)
     }
 
     // MARK: - Deep links (never log)

@@ -191,7 +191,7 @@ struct DrinkEditorView: View {
 
     private var addButtonSection: some View {
         Section {
-            Toggle("Add a button to the home screen", isOn: $addButton)
+            Toggle("Add a drink button", isOn: presetsFull ? .constant(false) : $addButton)
                 .disabled(presetsFull)
         } footer: {
             if presetsFull {

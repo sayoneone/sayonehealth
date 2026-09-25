@@ -86,23 +86,6 @@
         }
       }
     },
-    "Add a button to the home screen": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add a button to the home screen"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Добавить кнопку на главный экран"
-          }
-        }
-      }
-    },
     "Add a custom drink": {
       "extractionState": "manual",
       "localizations": {
@@ -116,6 +99,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "Добавить свой напиток"
+          }
+        }
+      }
+    },
+    "Add a drink button": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a drink button"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавить кнопку быстрого ввода"
           }
         }
       }
