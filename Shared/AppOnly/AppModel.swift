@@ -32,7 +32,7 @@ struct DiagnosticsInfo: Equatable {
     let waterWriteAuth: HealthWriteAuth
 }
 
-/// The state behind both apps' UI. iPhone-only parts (catalog push to the watch) are behind `#if os(iOS)`.
+/// The state behind both apps' UI. The iPhone-only part (catalog push to the watch) is compiled for iOS only.
 @MainActor
 final class AppModel: ObservableObject {
     static let shared = AppModel()
