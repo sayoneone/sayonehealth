@@ -28,6 +28,7 @@
 		1A3E1FDCE1C876E780BE063E /* WatchOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B24D13D7321D5BE460C94D /* WatchOnboardingView.swift */; };
 		1BB01F5325C865184E286288 /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
 		1C59DEC9A651B5C1208FB170 /* PresetDisplays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */; };
+		20BDA4BD22B910C5B33838DD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */; };
 		20F9F5DDE13E19920C0FEFE6 /* SayoneHealthWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E9BC0ECF87D455009C58F8BB /* SayoneHealthWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2148FEF216DC93719DE5CED3 /* FavoritesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F348D92FD54712A00E2F70 /* FavoritesWidget.swift */; };
 		23C9B7C6B107C8B3DAF708D4 /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
@@ -51,6 +52,7 @@
 		492C3448925217EB4A3F3436 /* HealthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675C37E52CFC67621F92F0D /* HealthGateway.swift */; };
 		49CF2A7A153D7751254C5871 /* QuickLogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192057F5B66447D809BDC59 /* QuickLogIntent.swift */; };
 		4C2B636F0AD52050148B1502 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA827255627969FE22F9BAC5 /* AppLog.swift */; };
+		4D7BD3B19762E7DC8D03539F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */; };
 		4E28515644F33F6BC6EA8ADF /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
 		4E65C1678A9E088171CB9CF9 /* SayoneCore in Frameworks */ = {isa = PBXBuildFile; productRef = CBF0D4414344E926C93A301B /* SayoneCore */; };
 		50A6A1634B0C883F1EBAFB95 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2B60BB0D96B376EFBB493 /* DiagnosticsView.swift */; };
@@ -71,6 +73,7 @@
 		76775E7167C6FA83B94952C5 /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
 		787D07A9EC2AFD634ED82782 /* PresetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0FEFEB8AA72C87769F2879 /* PresetsListView.swift */; };
 		793B3F2D7C138ED0E790E72F /* LogDrinkIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFA6D3C3F01B035617A0E2 /* LogDrinkIntent.swift */; };
+		7B07360C2937EFF70B88D3C8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */; };
 		7C3AEA26574B1E6D44DC29FC /* PresetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359D07F8D1785EF1FF00534E /* PresetGrid.swift */; };
 		7D5F242ECDD6FD15BCA6D11E /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
 		7D8CCA50FA47BE2B2F59A257 /* DrinkEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08E76CCFBF155170B148492 /* DrinkEditorView.swift */; };
@@ -140,6 +143,7 @@
 		ED505BA6913CADB7CA31FC5C /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
 		EF97B385A759D14D5444912A /* DrinkPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9569918A4AAE4843BC770E7 /* DrinkPickerView.swift */; };
 		F0BCFFA68691A5DE3B7A2487 /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
+		F11B25C7B0E4153E3DEE0EC8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */; };
 		F1655CF20DEDEB3B42C070A0 /* SayoneWatchWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F756406811551E28A2B2847 /* SayoneWatchWidgetsBundle.swift */; };
 		F416594152B3254B8B0CC07F /* TodayTotalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2692D0B2B4333160F26842FD /* TodayTotalIntent.swift */; };
 		F67A43E3A8949959FF8AD538 /* PresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF29ACE5CF575D95051B933 /* PresetEntity.swift */; };
@@ -256,6 +260,7 @@
 		8A0FEFEB8AA72C87769F2879 /* PresetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsListView.swift; sourceTree = "<group>"; };
 		8B245530475C614AA6370FED /* ThisDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisDevice.swift; sourceTree = "<group>"; };
 		8B983C865AB4C3FCDB15C4D3 /* VolumePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumePickerView.swift; sourceTree = "<group>"; };
+		8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8DE05A451818BE9FC43604FD /* ProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCard.swift; sourceTree = "<group>"; };
 		9F531101919FFB1D8779D46E /* SayoneHealthWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayoneHealthWidgets.entitlements; sourceTree = "<group>"; };
 		9FDBF8FA88CE57453C8F059A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -370,6 +375,7 @@
 		3C578668D665273421E96AB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BA1610C2513E72EC5BEC1AA /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 			buildConfigurationList = 01FA47E67AF95C37324831DB /* Build configuration list for PBXNativeTarget "SayoneHealthWidgets" */;
 			buildPhases = (
 				BB69FEBB8AA5E483075FE67B /* Sources */,
+				BF925319F4DE9F075E800522 /* Resources */,
 				8BAC6906E026CD4B0072D6BF /* Frameworks */,
 			);
 			buildRules = (
@@ -638,6 +645,7 @@
 			buildConfigurationList = 6E0E185AD127D91355C93A5E /* Build configuration list for PBXNativeTarget "SayoneHealthWatchWidgets" */;
 			buildPhases = (
 				3599B8AF83A04BB9AACBB401 /* Sources */,
+				AE061314EDD1F5B5FCE59BDE /* Resources */,
 				126DAC098C6F53E380C5F71E /* Frameworks */,
 			);
 			buildRules = (
@@ -713,6 +721,23 @@
 				424DF9AC0E19F260420D02FE /* AppShortcuts.xcstrings in Resources */,
 				D5F2AC8BF6BE9E3F882EA495 /* Assets.xcassets in Resources */,
 				0DAAB70F8B2B148BBD800730 /* InfoPlist.strings in Resources */,
+				7B07360C2937EFF70B88D3C8 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE061314EDD1F5B5FCE59BDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7BD3B19762E7DC8D03539F /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF925319F4DE9F075E800522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20BDA4BD22B910C5B33838DD /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +748,7 @@
 				C8229D2E3D796E846A3E8CCA /* AppShortcuts.xcstrings in Resources */,
 				475FB230B0CE477EE072A029 /* Assets.xcassets in Resources */,
 				9217D19D719BE0E801F00247 /* InfoPlist.strings in Resources */,
+				F11B25C7B0E4153E3DEE0EC8 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
