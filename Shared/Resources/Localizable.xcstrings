@@ -715,6 +715,23 @@
         }
       }
     },
+    "Entry ID": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entry ID"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID записи"
+          }
+        }
+      }
+    },
     "Every drink you log is saved to Apple Health.": {
       "extractionState": "manual",
       "localizations": {

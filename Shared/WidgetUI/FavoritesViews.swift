@@ -52,8 +52,8 @@ struct FavoritesProgressColumn: View {
             ProgressView(value: entry.summary.progress)
                 .widgetAccentable()
             Spacer(minLength: 0)
-            if entry.showsUndo {
-                WidgetUndoButton()
+            if let undoID = entry.undoEntryID {
+                WidgetUndoButton(entryID: undoID)
             }
         }
     }

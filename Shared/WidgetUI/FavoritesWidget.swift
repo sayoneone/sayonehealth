@@ -11,10 +11,15 @@ struct FavoritesEntry: TimelineEntry {
 }
 
 extension FavoritesEntry {
+    /// The entry the undo button deletes; nil once the widget undo window has passed at this entry's date.
+    var undoEntryID: UUID? {
+        guard let until = summary.undoAvailableUntil, until > date, let last = summary.lastLocal else { return nil }
+        return last.id
+    }
+
     /// The undo button is shown only while the newest local entry is still inside the widget undo window.
     var showsUndo: Bool {
-        guard let until = summary.undoAvailableUntil else { return false }
-        return until > date
+        undoEntryID != nil
     }
 }
 
@@ -34,9 +39,11 @@ struct FavoritesProvider: TimelineProvider {
         Task {
             let now = Date()
             let s = await TodayService.summary(readHealth: true, now: now)
-            let e = FavoritesEntry(date: now, presets: presets, summary: s)
-            let nextRefresh = WidgetTimeline.nextRefresh(after: now, undoUntil: s.undoAvailableUntil)
-            completion(Timeline(entries: [e], policy: .after(nextRefresh)))
+            let entries = WidgetFuture.states(now: now, summary: s).map { state in
+                FavoritesEntry(date: state.date, presets: presets, summary: state.summary)
+            }
+            let nextRefresh = WidgetTimeline.nextRefresh(after: now, undoUntil: nil)
+            completion(Timeline(entries: entries, policy: .after(nextRefresh)))
         }
     }
 

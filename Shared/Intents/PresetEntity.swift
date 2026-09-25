@@ -14,8 +14,10 @@ struct PresetEntity: AppEntity {
     let tintRaw: String
     let volumeML: Int
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(drinkName)",
-                              subtitle: "\(VolumeText.short(volumeML))",
+        // Title carries the volume ("Вода · 500 мл"), so two water presets are distinguishable in the
+        // configured widget/control row and in the watchOS 26 face editor, not only inside the picker.
+        DisplayRepresentation(title: "\(drinkName) · \(VolumeText.short(volumeML))",
+                              subtitle: nil,
                               image: DisplayRepresentation.Image(systemName: symbol))
     }
     init(_ p: PresetDisplay) {

@@ -53,10 +53,12 @@ extension View {
     }
 }
 
-/// Undo of the newest local entry (10-minute widget window). Placed as a sibling of the log button.
+/// Undo of the entry the widget shows (10-minute widget window). Placed as a sibling of the log button.
 struct WidgetUndoButton: View {
+    let entryID: UUID
+
     var body: some View {
-        Button(intent: UndoLastIntent()) {
+        Button(intent: UndoEntryIntent(entryID: entryID)) {
             Image(systemName: "arrow.uturn.backward.circle.fill")
                 .font(.title3)
                 .widgetAccentable()
@@ -183,8 +185,8 @@ struct SmallQuickLogView: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             SmallQuickLogContent(entry: entry, leavesRoomForUndo: entry.showsUndo)
-            if entry.showsUndo {
-                WidgetUndoButton()
+            if let undoID = entry.undoEntryID {
+                WidgetUndoButton(entryID: undoID)
             }
         }
     }
