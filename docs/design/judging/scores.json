@@ -1,0 +1,44 @@
+[
+  {
+    "id": "P1",
+    "total": 26,
+    "gate": true,
+    "scores": {
+      "C2": "pass",
+      "C5": "pass",
+      "C3": "pass",
+      "C6": "pass",
+      "C7": "pass",
+      "C1": "pass",
+      "C4": "pass"
+    }
+  },
+  {
+    "id": "P2",
+    "total": 26,
+    "gate": true,
+    "scores": {
+      "C2": "pass",
+      "C5": "pass",
+      "C3": "pass",
+      "C6": "pass",
+      "C7": "pass",
+      "C1": "pass",
+      "C4": "pass"
+    }
+  },
+  {
+    "id": "P3",
+    "total": 23,
+    "gate": true,
+    "scores": {
+      "C2": "partial",
+      "C5": "pass",
+      "C3": "pass",
+      "C6": "pass",
+      "C7": "pass",
+      "C1": "pass",
+      "C4": "pass"
+    }
+  }
+]
