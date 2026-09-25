@@ -23,7 +23,7 @@ public enum CatalogEditor {
     }
 
     /// Replaces the drink with the same id. For built-ins the name fields (`builtIn`, `customName`) are ignored
-    /// and they stay unarchived.
+    /// and `isArchived` is forced to false (built-ins cannot be archived).
     public static func updateDrink(in c: inout Catalog, _ drink: Drink, now: Date = Date()) {
         guard let index = c.drinks.firstIndex(where: { $0.id == drink.id }) else { return }
         let old = c.drinks[index]
@@ -31,7 +31,7 @@ public enum CatalogEditor {
         if old.builtIn != nil || BuiltInDrink(rawValue: old.id) != nil {
             updated.builtIn = old.builtIn
             updated.customName = old.customName
-            updated.isArchived = old.isArchived
+            updated.isArchived = false
         } else {
             updated.builtIn = nil
             if let name = updated.customName {

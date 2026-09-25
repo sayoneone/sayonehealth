@@ -110,10 +110,11 @@ private struct HistoryBarsChart: View {
     let days: [DayTotal]
     let goalML: Int
 
-    private let barAreaHeight: CGFloat = 150
+    private var barAreaHeight: CGFloat { 150 }
 
     private var scaleML: Int {
-        max(goalML, days.map { $0.waterML }.max() ?? 0, 1)
+        let peak: Int = days.map { $0.waterML }.max() ?? 0
+        return max(goalML, peak, 1)
     }
 
     private func height(for ml: Int) -> CGFloat {

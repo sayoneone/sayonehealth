@@ -153,7 +153,7 @@ struct SettingsView: View {
 
     private func sendToWatch() {
         CatalogSync.shared.push(model.catalog)
-        sentToWatch = true
+        sentToWatch = CatalogSync.shared.watchAppInstalled
     }
 
     // MARK: - Siri
