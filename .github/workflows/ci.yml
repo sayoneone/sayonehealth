@@ -105,3 +105,111 @@ jobs:
         with:
           name: build-logs
           path: ${{ runner.temp }}/*.log
+
+  smoke:
+    name: Simulator smoke test (launch in Russian + screenshots)
+    runs-on: macos-26
+    timeout-minutes: 45
+    env:
+      XCODEGEN_VERSION: "2.46.0"
+      BID: com.sayoneone.sayonehealth
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode 26 and pick simulators
+        run: |
+          XC="$(ls -d /Applications/Xcode_26*.app | sort -V | tail -1)"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
+          xcrun simctl list devices available -j > "$RUNNER_TEMP/devices.json"
+          python3 - "$RUNNER_TEMP/devices.json" >> "$GITHUB_ENV" <<'PY'
+          import json, sys
+          d = json.load(open(sys.argv[1]))["devices"]
+          def pick(runtime_key, name_key, prefer):
+              best = None
+              for rt in sorted(d, reverse=True):
+                  if runtime_key not in rt:
+                      continue
+                  for dev in d[rt]:
+                      if name_key in dev["name"] and dev.get("isAvailable", True):
+                          if any(p in dev["name"] for p in prefer):
+                              return dev["udid"], dev["name"], rt
+                          best = best or (dev["udid"], dev["name"], rt)
+              return best
+          iphone = pick("iOS-26", "iPhone", ["Pro"])
+          watch = pick("watchOS-26", "Apple Watch", ["Series", "Ultra"])
+          print(f"IPHONE={iphone[0]}"); print(f"IPHONE_NAME={iphone[1]}")
+          print(f"WATCH={watch[0]}"); print(f"WATCH_NAME={watch[1]}")
+          PY
+      - name: Show picked simulators
+        run: |
+          echo "iPhone: $IPHONE_NAME ($IPHONE) / Watch: $WATCH_NAME ($WATCH)"
+      - name: Install XcodeGen and generate project
+        run: |
+          for i in 1 2 3; do curl -fsSL -o "$RUNNER_TEMP/xg.zip" "https://github.com/yonaskolb/XcodeGen/releases/download/${XCODEGEN_VERSION}/xcodegen.zip" && break; sleep 5; done
+          if unzip -q -o "$RUNNER_TEMP/xg.zip" -d "$RUNNER_TEMP" && "$RUNNER_TEMP/xcodegen/bin/xcodegen" --version; then
+            echo "$RUNNER_TEMP/xcodegen/bin" >> "$GITHUB_PATH"; export PATH="$RUNNER_TEMP/xcodegen/bin:$PATH"
+          else
+            brew install xcodegen
+          fi
+          xcodegen generate
+      - name: Build for the iPhone and watch simulators (ad-hoc signed so entitlements are embedded)
+        run: |
+          set -o pipefail
+          SIGN=(CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGNING_REQUIRED=NO COMPILER_INDEX_STORE_ENABLE=NO)
+          xcodebuild build -project SayoneHealth.xcodeproj -scheme SayoneHealth -configuration Debug \
+            -destination "platform=iOS Simulator,id=$IPHONE" -derivedDataPath "$RUNNER_TEMP/dd" "${SIGN[@]}" \
+            2>&1 | tee "$RUNNER_TEMP/smoke-ios.log" | xcbeautify --renderer github-actions
+          xcodebuild build -project SayoneHealth.xcodeproj -scheme SayoneHealthWatch -configuration Debug \
+            -destination "platform=watchOS Simulator,id=$WATCH" -derivedDataPath "$RUNNER_TEMP/dd" "${SIGN[@]}" \
+            2>&1 | tee "$RUNNER_TEMP/smoke-watch.log" | xcbeautify --renderer github-actions
+      - name: Inspect bundles and entitlements
+        run: |
+          APP="$RUNNER_TEMP/dd/Build/Products/Debug-iphonesimulator/SayoneHealth.app"
+          WAPP="$RUNNER_TEMP/dd/Build/Products/Debug-watchsimulator/SayoneHealthWatch.app"
+          ls "$APP" "$APP/PlugIns" "$APP/Watch" || true
+          for b in "$APP" "$APP/PlugIns/SayoneHealthWidgets.appex" "$WAPP" "$WAPP/PlugIns/SayoneHealthWatchWidgets.appex"; do
+            echo "== $b"; plutil -extract CFBundleIdentifier raw "$b/Info.plist" || true
+            codesign -d --entitlements - --xml "$b" 2>/dev/null | plutil -convert xml1 -o - - 2>/dev/null | grep -E "healthkit|application-groups|<string>group" || echo "(no signed entitlements)"
+          done
+      - name: iPhone — launch, screenshots, liveness
+        run: |
+          mkdir -p shots
+          APP="$RUNNER_TEMP/dd/Build/Products/Debug-iphonesimulator/SayoneHealth.app"
+          xcrun simctl boot "$IPHONE" || true
+          xcrun simctl bootstatus "$IPHONE" -b
+          xcrun simctl status_bar "$IPHONE" override --time 9:41 --batteryLevel 100 --cellularBars 4 || true
+          xcrun simctl install "$IPHONE" "$APP"
+          RU=(-AppleLanguages "(ru)" -AppleLocale ru_RU)
+          xcrun simctl launch "$IPHONE" "$BID" "${RU[@]}"; sleep 10
+          xcrun simctl io "$IPHONE" screenshot shots/iphone-1-first-launch.png
+          xcrun simctl terminate "$IPHONE" "$BID" || true
+          xcrun simctl launch "$IPHONE" "$BID" "${RU[@]}" -onboardingDismissed YES; sleep 8
+          xcrun simctl io "$IPHONE" screenshot shots/iphone-2-today.png
+          xcrun simctl openurl "$IPHONE" "sayonehealth://log?drink=colaZero&ml=330"; sleep 4
+          xcrun simctl io "$IPHONE" screenshot shots/iphone-3-confirm-deeplink.png
+          sleep 5
+          if xcrun simctl spawn "$IPHONE" launchctl list | grep -q "UIKitApplication:$BID"; then echo "iPhone app alive: YES"; else echo "::error::iPhone app is not running (crash?)"; echo DEAD > shots/iphone-DEAD; fi
+      - name: Watch — launch, screenshots, liveness
+        run: |
+          WAPP="$RUNNER_TEMP/dd/Build/Products/Debug-watchsimulator/SayoneHealthWatch.app"
+          xcrun simctl boot "$WATCH" || true
+          xcrun simctl bootstatus "$WATCH" -b
+          xcrun simctl install "$WATCH" "$WAPP"
+          RU=(-AppleLanguages "(ru)" -AppleLocale ru_RU)
+          xcrun simctl launch "$WATCH" "$BID.watchkitapp" "${RU[@]}"; sleep 12
+          xcrun simctl io "$WATCH" screenshot shots/watch-1-root.png
+          xcrun simctl openurl "$WATCH" "sayonehealth://log?drink=water&ml=500"; sleep 5
+          xcrun simctl io "$WATCH" screenshot shots/watch-2-confirm-deeplink.png
+          sleep 5
+          if xcrun simctl spawn "$WATCH" launchctl list | grep -q "$BID.watchkitapp"; then echo "Watch app alive: YES"; else echo "::error::Watch app is not running (crash?)"; echo DEAD > shots/watch-DEAD; fi
+      - name: Crash reports
+        if: always()
+        run: |
+          ls -la ~/Library/Logs/DiagnosticReports/ 2>/dev/null | grep -i -E "sayone|\.ips" || echo "no crash reports"
+          for f in ~/Library/Logs/DiagnosticReports/*Sayone*; do [ -f "$f" ] && { echo "== $f"; head -120 "$f"; cp "$f" shots/ || true; }; done
+          test ! -f shots/iphone-DEAD && test ! -f shots/watch-DEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: shots/
