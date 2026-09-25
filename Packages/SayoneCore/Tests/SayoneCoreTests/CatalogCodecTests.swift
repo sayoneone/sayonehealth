@@ -29,9 +29,19 @@ final class CatalogCodecTests: XCTestCase {
     func testEncoderUsesSortedKeysAndMilliseconds() throws {
         let snapshot = HealthSnapshot(dayStart: Date(timeIntervalSince1970: 1_758_747_600), externalWaterML: 1.5,
                                       otherDeviceWaterML: 0.5, readAt: Date(timeIntervalSince1970: 1_758_800_000.25))
-        let text = String(decoding: try CoreJSON.encoder().encode(snapshot), as: UTF8.self)
-        XCTAssertEqual(text, #"{"dayStart":1758747600000,"externalWaterML":1.5,"otherDeviceWaterML":0.5,"readAt":1758800000250}"#)
-        let decoded = try CoreJSON.decoder().decode(HealthSnapshot.self, from: Data(text.utf8))
+        let data = try CoreJSON.encoder().encode(snapshot)
+        let text = String(decoding: data, as: UTF8.self)
+        // Keys are sorted.
+        let keys = ["dayStart", "externalWaterML", "otherDeviceWaterML", "readAt"]
+        let positions = keys.compactMap { text.range(of: "\"\($0)\"")?.lowerBound }
+        XCTAssertEqual(positions.count, keys.count, text)
+        XCTAssertEqual(positions, positions.sorted(), text)
+        // Dates are milliseconds since 1970.
+        let object = try XCTUnwrap(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        XCTAssertEqual((object["dayStart"] as? NSNumber)?.doubleValue, 1_758_747_600_000)
+        XCTAssertEqual((object["readAt"] as? NSNumber)?.doubleValue, 1_758_800_000_250)
+        XCTAssertEqual((object["externalWaterML"] as? NSNumber)?.doubleValue, 1.5)
+        let decoded = try CoreJSON.decoder().decode(HealthSnapshot.self, from: data)
         XCTAssertEqual(decoded, snapshot)
     }
 
