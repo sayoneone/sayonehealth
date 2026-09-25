@@ -89,6 +89,22 @@ final class TodayMathTests: XCTestCase {
         XCTAssertEqual(s.localWaterML, 250)
     }
 
+    /// A foreign entry whose water sample exists twice (re-save from another process) counts once.
+    func testDuplicateForeignSamplesCountOnce() {
+        let foreign = UUID()
+        let at = now.addingTimeInterval(-1800)
+        let samples = [
+            Fixtures.sample(date: at, waterML: 300, entryID: foreign, origin: .watch),
+            Fixtures.sample(date: at, waterML: 300, entryID: foreign, origin: .watch),
+            Fixtures.sample(date: at, waterML: 200, entryID: nil),
+            Fixtures.sample(date: at, waterML: 200, entryID: nil)
+        ]
+        let s = total(samples: samples, journal: [])
+        XCTAssertEqual(s.otherDeviceWaterML, 300)
+        XCTAssertEqual(s.externalWaterML, 700)   // other apps' samples are never deduplicated
+        XCTAssertEqual(s.waterML, 700)
+    }
+
     /// 6. A sample from another app (entryID == nil) is counted.
     func testOtherAppSampleIsCounted() {
         let s = total(samples: [Fixtures.sample(date: now.addingTimeInterval(-60), waterML: 400, entryID: nil)], journal: [])

@@ -25,9 +25,12 @@ public enum TodayMath {
         let today = day(containing: now, calendar: calendar)
         var external = 0.0
         var other = 0.0
+        // A foreign entry counts once even if its water sample exists twice (e.g. a re-save from another
+        // process); TodayListMerger shows it as one row, so the total must agree.
+        var countedForeign = Set<UUID>()
         for sample in samples where today.sayoneContains(sample.date) && sample.waterML.isFinite {
             if let entryID = sample.entryID {
-                if !localEntryIDs.contains(entryID) {
+                if !localEntryIDs.contains(entryID) && countedForeign.insert(entryID).inserted {
                     external += sample.waterML
                     other += sample.waterML
                 }

@@ -172,6 +172,7 @@ jobs:
             codesign -d --entitlements - --xml "$b" 2>/dev/null | plutil -convert xml1 -o - - 2>/dev/null | grep -E "healthkit|application-groups|<string>group" || echo "(no signed entitlements)"
           done
       - name: iPhone — launch, screenshots, liveness
+        timeout-minutes: 12
         run: |
           mkdir -p shots
           APP="$RUNNER_TEMP/dd/Build/Products/Debug-iphonesimulator/SayoneHealth.app"
@@ -189,27 +190,36 @@ jobs:
           xcrun simctl io "$IPHONE" screenshot shots/iphone-3-confirm-deeplink.png
           sleep 5
           if xcrun simctl spawn "$IPHONE" launchctl list | grep -q "UIKitApplication:$BID"; then echo "iPhone app alive: YES"; else echo "::error::iPhone app is not running (crash?)"; echo DEAD > shots/iphone-DEAD; fi
+          xcrun simctl shutdown "$IPHONE" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-iphone
+          path: shots/
       - name: Watch — launch, screenshots, liveness
+        timeout-minutes: 15
         run: |
+          mkdir -p wshots
           WAPP="$RUNNER_TEMP/dd/Build/Products/Debug-watchsimulator/SayoneHealthWatch.app"
-          xcrun simctl boot "$WATCH" || true
-          xcrun simctl bootstatus "$WATCH" -b
-          xcrun simctl install "$WATCH" "$WAPP"
+          T() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+          echo "booting watch $(date)"; xcrun simctl boot "$WATCH" || true
+          T 300 xcrun simctl bootstatus "$WATCH" -b || echo "::warning::watch bootstatus timed out"
+          echo "installing $(date)"; T 120 xcrun simctl install "$WATCH" "$WAPP"
           RU=(-AppleLanguages "(ru)" -AppleLocale ru_RU)
-          xcrun simctl launch "$WATCH" "$BID.watchkitapp" "${RU[@]}"; sleep 12
-          xcrun simctl io "$WATCH" screenshot shots/watch-1-root.png
-          xcrun simctl openurl "$WATCH" "sayonehealth://log?drink=water&ml=500"; sleep 5
-          xcrun simctl io "$WATCH" screenshot shots/watch-2-confirm-deeplink.png
+          echo "launching $(date)"; T 120 xcrun simctl launch "$WATCH" "$BID.watchkitapp" "${RU[@]}" || echo "::warning::watch launch timed out"; sleep 12
+          T 60 xcrun simctl io "$WATCH" screenshot wshots/watch-1-root.png
+          T 60 xcrun simctl openurl "$WATCH" "sayonehealth://log?drink=water&ml=500"; sleep 5
+          T 60 xcrun simctl io "$WATCH" screenshot wshots/watch-2-confirm-deeplink.png
           sleep 5
-          if xcrun simctl spawn "$WATCH" launchctl list | grep -q "$BID.watchkitapp"; then echo "Watch app alive: YES"; else echo "::error::Watch app is not running (crash?)"; echo DEAD > shots/watch-DEAD; fi
+          if T 60 xcrun simctl spawn "$WATCH" launchctl list | grep -q "$BID.watchkitapp"; then echo "Watch app alive: YES"; else echo "::error::Watch app is not running (crash?)"; echo DEAD > wshots/watch-DEAD; fi
       - name: Crash reports
         if: always()
         run: |
           ls -la ~/Library/Logs/DiagnosticReports/ 2>/dev/null | grep -i -E "sayone|\.ips" || echo "no crash reports"
-          for f in ~/Library/Logs/DiagnosticReports/*Sayone*; do [ -f "$f" ] && { echo "== $f"; head -120 "$f"; cp "$f" shots/ || true; }; done
-          test ! -f shots/iphone-DEAD && test ! -f shots/watch-DEAD
+          for f in ~/Library/Logs/DiagnosticReports/*Sayone*; do [ -f "$f" ] && { echo "== $f"; head -120 "$f"; cp "$f" wshots/ || true; }; done
+          test ! -f shots/iphone-DEAD && test ! -f wshots/watch-DEAD
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshots
-          path: shots/
+          name: screenshots-watch
+          path: wshots/
