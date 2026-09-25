@@ -1,36 +1,35 @@
 import SwiftUI
 import SayoneCore
 
-/// «✓ Записано · Вода, 250 мл» with a small «Отменить» button. Only the button undoes, so a tap on the
-/// banner text never deletes the drink by accident. AppModel clears the toast after UndoPolicy.toastDuration.
+/// «✓ Записано · Вода, 250 мл · Отменить», drawn over the ring row's slot (WatchRootView) so it never
+/// changes any row height. The whole banner is the undo target: nobody taps the ring slot by accident.
+/// AppModel clears the toast after UndoPolicy.toastDuration.
 struct LoggedBanner: View {
     let toast: LogToast
     let onUndo: () -> Void
 
     var body: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "checkmark.circle.fill")
-                .foregroundStyle(.green)
-            Text(verbatim: toast.text)
-                .font(.footnote)
-                .lineLimit(2)
-                .minimumScaleFactor(0.8)
-            if !toast.savedToHealth {
-                Image(systemName: "hourglass")
-                    .font(.caption2)
-                    .foregroundStyle(.orange)
+        Button(action: onUndo) {
+            HStack(spacing: 6) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundStyle(.green)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(verbatim: toast.text)
+                        .font(.footnote)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.7)
+                    Label("Undo", systemImage: "arrow.uturn.backward")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(.orange)
+                }
+                Spacer(minLength: 0)
+                if !toast.savedToHealth {
+                    Image(systemName: "hourglass")
+                        .font(.caption2)
+                        .foregroundStyle(.orange)
+                }
             }
-            Spacer(minLength: 0)
-            Button(action: onUndo) {
-                Image(systemName: "arrow.uturn.backward")
-                    .font(.footnote.weight(.semibold))
-            }
-            .buttonStyle(.bordered)
-            .tint(.orange)
-            .frame(width: 44)
-            .accessibilityLabel(Text("Undo"))
         }
-        .padding(8)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .buttonStyle(.plain)
     }
 }

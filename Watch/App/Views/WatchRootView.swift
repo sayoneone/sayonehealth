@@ -67,28 +67,28 @@ private struct WatchHomeList: View {
 
     var body: some View {
         List {
+            // The "logged" banner replaces the ring inside the ring row's own slot, so no row above the
+            // presets changes height: a quick second tap on a preset logs again instead of hitting Undo.
             TodayRingRow(summary: model.summary)
+                .opacity(model.toast == nil ? 1 : 0)
+                .overlay {
+                    if let toast = model.toast {
+                        LoggedBanner(toast: toast) { undo(toast) }
+                    }
+                }
+            presetRows
+            // Below the presets: it appears only after the first refresh and must not move them.
             if model.needsHealthOnboarding {
                 NavigationLink(value: WatchRoute.health) {
                     WatchHealthRow()
                 }
             }
-            presetRows
             NavigationLink(value: WatchRoute.otherDrink) {
                 Label("Other drink…", systemImage: "ellipsis.circle")
             }
             todaySection
             NavigationLink(value: WatchRoute.complicationHelp) {
                 Label("How to add to the watch face", systemImage: "applewatch.watchface")
-            }
-        }
-        // The banner floats over the bottom edge instead of being a List row, so the preset rows never
-        // shift under the finger: a quick second tap on a preset logs again instead of hitting Undo.
-        .safeAreaInset(edge: .bottom) {
-            if let toast = model.toast {
-                LoggedBanner(toast: toast) { undo(toast) }
-                    .padding(.horizontal, 4)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
         .animation(.default, value: model.toast)

@@ -106,6 +106,8 @@ final class AppModel: ObservableObject {
         rows = state.rows
         lastSamples = state.healthSamples
         WidgetRefresher.reloadAll()
+        // Keeps Siri's ${drink} values in step with the catalog and a changed device language.
+        SayoneShortcuts.updateAppShortcutParameters()
         #if os(iOS)
         if lastPushedRevision != catalog.revision {
             CatalogSync.shared.push(catalog)

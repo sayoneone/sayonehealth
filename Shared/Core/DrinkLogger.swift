@@ -197,6 +197,12 @@ enum DrinkLogger {
             try journal.finishDelete(id: entryID, at: Date())
             return .deleted
         } catch let e as HealthGatewayError where e == .notAuthorized || e == .unavailable {
+            if previous == .saved && ThisDevice.process == .widgetExtension {
+                // The widget extension may lack the Health access the app has (risk R2/R3). Keep the entry
+                // pendingDelete (hidden, not counted) so the app's flush removes the samples later.
+                AppLog.health.notice("Widget undo without Health access: delete queued for the app")
+                return .queued
+            }
             _ = try? journal.finishDelete(id: entryID, at: Date())
             return previous == .saved ? .notDeletableHere : .deleted
         } catch {
