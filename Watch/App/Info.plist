@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>SayoneHealth</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(BUNDLE_ID_PREFIX).watchkitapp</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>sayonehealth</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>INAlternativeAppNames</key>
+	<array>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Sayone</string>
+		</dict>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Сейон</string>
+		</dict>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Сейон Хелс</string>
+		</dict>
+	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>SayoneHealth reads your water intake to show today's total from all your devices.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health.</string>
+	<key>SayoneAppGroupID</key>
+	<string>$(APP_GROUP_ID)</string>
+	<key>WKApplication</key>
+	<true/>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>$(BUNDLE_ID_PREFIX)</string>
+	<key>WKRunsIndependentlyOfCompanionApp</key>
+	<true/>
+</dict>
+</plist>

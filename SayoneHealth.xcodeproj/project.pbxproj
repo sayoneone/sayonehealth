@@ -1,0 +1,1262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00EB7CBC47538CD381C016FF /* VolumeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A7923A53089B5B11EC080 /* VolumeText.swift */; };
+		049221DDE1BD634DB9251395 /* HealthAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA435EB9037F8B9D64BA38E7 /* HealthAuthorization.swift */; };
+		04D214B89F7597CAD6554052 /* SiriText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEB819C75FC97339397CCA /* SiriText.swift */; };
+		050A148A3DE63CD039788933 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F7449BF00D413AE4F536B /* ToastView.swift */; };
+		0583B9351A308B7848DAB566 /* WidgetRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */; };
+		0764F5C7F64742321CF9CACE /* PresetDisplays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */; };
+		0901644A0162E86584241747 /* TodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E62FBB19BFA765BC14F104 /* TodayService.swift */; };
+		0924A164F911A465C4F2AF65 /* HealthAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA435EB9037F8B9D64BA38E7 /* HealthAuthorization.swift */; };
+		0B13DE58CB412A9C6272B142 /* HealthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675C37E52CFC67621F92F0D /* HealthGateway.swift */; };
+		0D4FBCB4889BA066254DC9C1 /* FavoritesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F348D92FD54712A00E2F70 /* FavoritesWidget.swift */; };
+		0DAAB70F8B2B148BBD800730 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A6A1BAC58C36C884CC19F01 /* InfoPlist.strings */; };
+		0DFEB509AE944588CD50CB22 /* VolumeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A7923A53089B5B11EC080 /* VolumeText.swift */; };
+		110E0791DEF1ED3845B88860 /* WidgetRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */; };
+		1377B28F76C62523A8AEBC58 /* DrinkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C736405653D6EFBA85EE2 /* DrinkLogger.swift */; };
+		13977D50086FB23D353E2E43 /* CatalogSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1068CF3A66DF41D312A1E /* CatalogSync.swift */; };
+		13DA6383C1F982C84576682F /* QuickLogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB871ECDDA3A62854EEF494 /* QuickLogViews.swift */; };
+		1654E53F392FE0D86C52E919 /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
+		19D796A9073664268FADE617 /* VolumeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A7923A53089B5B11EC080 /* VolumeText.swift */; };
+		1A3E1FDCE1C876E780BE063E /* WatchOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B24D13D7321D5BE460C94D /* WatchOnboardingView.swift */; };
+		1BB01F5325C865184E286288 /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
+		1C59DEC9A651B5C1208FB170 /* PresetDisplays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */; };
+		20F9F5DDE13E19920C0FEFE6 /* SayoneHealthWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E9BC0ECF87D455009C58F8BB /* SayoneHealthWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2148FEF216DC93719DE5CED3 /* FavoritesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F348D92FD54712A00E2F70 /* FavoritesWidget.swift */; };
+		23C9B7C6B107C8B3DAF708D4 /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
+		249D61893CD0BA354DC0E8BF /* UndoLastIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */; };
+		25182FE81CD445D48E00BE0F /* TodayTotalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2692D0B2B4333160F26842FD /* TodayTotalIntent.swift */; };
+		2539CF3BE128FB5DACD27908 /* QuickLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDF384E8FF95044CF35A8D /* QuickLogProvider.swift */; };
+		28AEB8324D6C22F1937421CA /* DrinkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17928ECAC80BAF8B10D9A14F /* DrinkEntity.swift */; };
+		2DE2827D279D0438A06AE5A6 /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
+		2E7BD081EAE2E3323CAAFA6A /* SayoneHealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F5CD0C5080332D5A463BCD /* SayoneHealthApp.swift */; };
+		31220A7402C2F2E04B0B1859 /* ProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE05A451818BE9FC43604FD /* ProgressCard.swift */; };
+		36E07980FC8B5A6F4793CAEC /* QuickLogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192057F5B66447D809BDC59 /* QuickLogIntent.swift */; };
+		378BF246C4E81160F0DC7763 /* HealthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675C37E52CFC67621F92F0D /* HealthGateway.swift */; };
+		3A624C148EAD0D972A1F33F9 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA827255627969FE22F9BAC5 /* AppLog.swift */; };
+		3F891B68ED7FC127FFB02AEC /* TodayListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933B01A9B8BD0C6CCDFC754 /* TodayListSection.swift */; };
+		401B6CDB4C0DC5518006730B /* UndoLastIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */; };
+		424DF9AC0E19F260420D02FE /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 35D5C878570A5637188672AE /* AppShortcuts.xcstrings */; };
+		459849E19EF67A991EF07E27 /* SayoneShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33394F9974417B571D5F7B0 /* SayoneShortcuts.swift */; };
+		462DBF77F7970F293F4A7AC7 /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
+		475FB230B0CE477EE072A029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8367919D722DE19F717F75BB /* Assets.xcassets */; };
+		47A80F8F07ACEB566E8247B1 /* TodayRingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136248A0338A4649D14BC04D /* TodayRingRow.swift */; };
+		492C3448925217EB4A3F3436 /* HealthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675C37E52CFC67621F92F0D /* HealthGateway.swift */; };
+		49CF2A7A153D7751254C5871 /* QuickLogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192057F5B66447D809BDC59 /* QuickLogIntent.swift */; };
+		4C2B636F0AD52050148B1502 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA827255627969FE22F9BAC5 /* AppLog.swift */; };
+		4E28515644F33F6BC6EA8ADF /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
+		4E65C1678A9E088171CB9CF9 /* SayoneCore in Frameworks */ = {isa = PBXBuildFile; productRef = CBF0D4414344E926C93A301B /* SayoneCore */; };
+		50A6A1634B0C883F1EBAFB95 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2B60BB0D96B376EFBB493 /* DiagnosticsView.swift */; };
+		520B5BD8CA1F8E7A4C89A33D /* WidgetRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */; };
+		540EE1D4FBB56042053767A9 /* FavoritesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB6DB1330560AFE1E1F0ADB /* FavoritesViews.swift */; };
+		56B4DC91A28B0E09014B1021 /* VolumeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A7923A53089B5B11EC080 /* VolumeText.swift */; };
+		5B1854E68163B09A33D405BC /* WaterAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078612F95A9489A8355DD7E /* WaterAmount.swift */; };
+		5B68F52A6FE2957BD10E2430 /* PresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF29ACE5CF575D95051B933 /* PresetEntity.swift */; };
+		5C28B323471766EE218C85A8 /* PresetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FA773B446F3580F7A329D4 /* PresetRow.swift */; };
+		5DE7EB77B8F54E400A25B014 /* UndoLastIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */; };
+		5ED20794752749981A19F893 /* TintPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CEC39BA43670F83014882 /* TintPalette.swift */; };
+		6083BA03E888726C6B6AF7A1 /* QuickLogWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF32AB52A314E924481F476 /* QuickLogWidget.swift */; };
+		6475588F044144FD38D247B8 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */; };
+		64EB58AB44F93D601C98F4FE /* PresetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972D7A161945BBA3698B71C /* PresetEditorView.swift */; };
+		6EA6F152E4B19DE6879467D1 /* VolumePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B983C865AB4C3FCDB15C4D3 /* VolumePickerView.swift */; };
+		71228AB65AC3B2B4C9FD7F73 /* LoggedBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475B20E4B65C997597E609F /* LoggedBanner.swift */; };
+		7552B1D20B5A6AB64246B174 /* SiriText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEB819C75FC97339397CCA /* SiriText.swift */; };
+		76775E7167C6FA83B94952C5 /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
+		787D07A9EC2AFD634ED82782 /* PresetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0FEFEB8AA72C87769F2879 /* PresetsListView.swift */; };
+		793B3F2D7C138ED0E790E72F /* LogDrinkIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFA6D3C3F01B035617A0E2 /* LogDrinkIntent.swift */; };
+		7C3AEA26574B1E6D44DC29FC /* PresetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359D07F8D1785EF1FF00534E /* PresetGrid.swift */; };
+		7D5F242ECDD6FD15BCA6D11E /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
+		7D8CCA50FA47BE2B2F59A257 /* DrinkEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08E76CCFBF155170B148492 /* DrinkEditorView.swift */; };
+		7E1E078B3086588D86237CDC /* TintPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CEC39BA43670F83014882 /* TintPalette.swift */; };
+		7EF4DB657BBE31323815CE6F /* SayoneHealthWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DC8E084A921AB54A7793B3FA /* SayoneHealthWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		806B0EB14C38DEEC3750E836 /* TintPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CEC39BA43670F83014882 /* TintPalette.swift */; };
+		80C78AC9048928701C22938F /* SayoneCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56B61566C39CC7AE42ECC6B8 /* SayoneCore */; };
+		85C339B54AB18A387296EF44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0822F2213A42CA6296B7933 /* SettingsView.swift */; };
+		8633F993A29BE3CF3A45F8B8 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */; };
+		87D21C2B4A0856082B2CF63C /* SayoneCore in Frameworks */ = {isa = PBXBuildFile; productRef = 181288DCCF8A7805934E8047 /* SayoneCore */; };
+		89E88011188DB53C484F02F0 /* SayoneWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5A7343E1034FE59DC4C85 /* SayoneWidgetsBundle.swift */; };
+		8D6721177FB2B4A20038774B /* UndoLastIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */; };
+		915D6386A4A6E67D307AD6B8 /* WidgetRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */; };
+		9217D19D719BE0E801F00247 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765F0631543D30B8011B4A48 /* InfoPlist.strings */; };
+		93FD19D316C54EEBCE1FCBF3 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */; };
+		956C60E67FB327BF7FB63108 /* DrinkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C736405653D6EFBA85EE2 /* DrinkLogger.swift */; };
+		96EC58FFA2D94A0DA42A437C /* TodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E62FBB19BFA765BC14F104 /* TodayService.swift */; };
+		97158CD90529C329DD5833D0 /* PresetDisplays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */; };
+		9867F7BA61D688DE0E6B7CAA /* FavoritesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB6DB1330560AFE1E1F0ADB /* FavoritesViews.swift */; };
+		988597102989E5820DC7F423 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA827255627969FE22F9BAC5 /* AppLog.swift */; };
+		9A4276B444694F378B838AB5 /* HealthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1675C37E52CFC67621F92F0D /* HealthGateway.swift */; };
+		9B74DDD8893FF2361B45E0D6 /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
+		A039D739827DF3246D588C7B /* PresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF29ACE5CF575D95051B933 /* PresetEntity.swift */; };
+		A1E0F6EB7DBDC3E1A3591714 /* ComplicationHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690769262ED6FD40F1CEA8 /* ComplicationHelpView.swift */; };
+		A4ECAE702E3FC7CA15C4DF4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3259020D8F80962BB05F4F /* OnboardingView.swift */; };
+		A5D24609AEEBCBBB2C3F244C /* ThisDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B245530475C614AA6370FED /* ThisDevice.swift */; };
+		A6692A67C24B7CDC2E0F286F /* DrinkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C736405653D6EFBA85EE2 /* DrinkLogger.swift */; };
+		A6A8AB7F48DD87C800262D87 /* SayoneShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33394F9974417B571D5F7B0 /* SayoneShortcuts.swift */; };
+		A7C73DD4B6540EAF7FA8FDF2 /* SayoneWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C42FD2C72D0595FD8F4145 /* SayoneWatchApp.swift */; };
+		A8BA14FFEF4457F1026B3B4F /* QuickLogControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C25FE3BF6A66C3D744C28 /* QuickLogControl.swift */; };
+		ABA3E2F67E0A1910660EA522 /* WatchTodayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFA06DA9599A47260A3C53 /* WatchTodayRow.swift */; };
+		AC1958841AE7850914C01CFB /* PresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF29ACE5CF575D95051B933 /* PresetEntity.swift */; };
+		AC7506A9D2B0E9FD9ED6A2E9 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */; };
+		AE345B3C43B0599F9DC83B3F /* TodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E62FBB19BFA765BC14F104 /* TodayService.swift */; };
+		AE72D54251266EE575BD7AB6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8B9119B12E520EA4F2785 /* HistoryView.swift */; };
+		AEDCD9A80685B83932ABAB91 /* SayoneCore in Frameworks */ = {isa = PBXBuildFile; productRef = 74033BE94B92F75B4129346D /* SayoneCore */; };
+		AF5AAEB360119B322CC7419F /* QuickLogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192057F5B66447D809BDC59 /* QuickLogIntent.swift */; };
+		B1B5041BF9B76FDA2E332550 /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E09292AFDB3905D79626D /* WatchRootView.swift */; };
+		B7C09025980A4C9D6151ABB2 /* SelectPresetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */; };
+		BDA7B6B9990A46D26562E650 /* LogWaterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79096C3118820E6609AAA27C /* LogWaterIntent.swift */; };
+		BF1B22915DDB7DB6FD9FA1EC /* DrinksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496F89D5C9F3D0FD45A9D48 /* DrinksListView.swift */; };
+		C05F95F31E406F5D58BB976E /* SayoneHealthWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B52A34A52A24411C23F9153F /* SayoneHealthWatchWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C091F245C80EC8C67ADE05D7 /* QuickLogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDF384E8FF95044CF35A8D /* QuickLogProvider.swift */; };
+		C63E7968C1920A94E1C4E6C8 /* TintPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CEC39BA43670F83014882 /* TintPalette.swift */; };
+		C8229D2E3D796E846A3E8CCA /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 35D5C878570A5637188672AE /* AppShortcuts.xcstrings */; };
+		C9BCE483AA25206FD3F762C5 /* TodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E62FBB19BFA765BC14F104 /* TodayService.swift */; };
+		C9E0DF0790D34D80B0795152 /* WaterAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078612F95A9489A8355DD7E /* WaterAmount.swift */; };
+		CAB850C86B1D6D424F959CB0 /* DrinkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C736405653D6EFBA85EE2 /* DrinkLogger.swift */; };
+		CB3AD3099C33D98DE6FD15E1 /* SiriText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEB819C75FC97339397CCA /* SiriText.swift */; };
+		D1AAB538CB75234C6C27A6B5 /* PresetDisplays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */; };
+		D20E972C822D208B3C0850E1 /* LogDrinkIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CFA6D3C3F01B035617A0E2 /* LogDrinkIntent.swift */; };
+		D4BBC8AB20CAB2232696ACAE /* ConfirmLogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A390C7B72024B02E88BE478C /* ConfirmLogSheet.swift */; };
+		D5313D4D74F9A77FF415E676 /* QuickLogWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF32AB52A314E924481F476 /* QuickLogWidget.swift */; };
+		D54E43B67142FEF8EDF2445F /* DrinkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17928ECAC80BAF8B10D9A14F /* DrinkEntity.swift */; };
+		D5F2AC8BF6BE9E3F882EA495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDBF8FA88CE57453C8F059A /* Assets.xcassets */; };
+		D6B6F6A1F676C0C0CAD435D0 /* SiriText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEB819C75FC97339397CCA /* SiriText.swift */; };
+		D6C112572ABAB2A39A039C41 /* QuickLogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB871ECDDA3A62854EEF494 /* QuickLogViews.swift */; };
+		D76DE919BDB327EF3D7460AD /* WatchWidgetFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C3AC1E527630078CAD50B /* WatchWidgetFeatures.swift */; };
+		DBC3D71804C1D4A2219B2683 /* LogWaterIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79096C3118820E6609AAA27C /* LogWaterIntent.swift */; };
+		E0E837985CC79CDEA573E6BD /* ThisDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B245530475C614AA6370FED /* ThisDevice.swift */; };
+		E1CEAEE5D2A618576A62FB8E /* QuickLogIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192057F5B66447D809BDC59 /* QuickLogIntent.swift */; };
+		E512931193D02390A69855A4 /* WatchAppFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B74468C4B51ED31367DCA /* WatchAppFeatures.swift */; };
+		E55D4DFC451E23A30935F6A8 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA505C4C13779FFB1FC54D7 /* AppModel.swift */; };
+		E9A2E907E59F66A47BA169CC /* LogDrinkSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B55EEA96C07F91038FC061 /* LogDrinkSheet.swift */; };
+		ECB6E14F0C11A923F9A14650 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4588B1A68F4AD7C4796E4 /* TodayView.swift */; };
+		ED2108C423A7FFB761525456 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA827255627969FE22F9BAC5 /* AppLog.swift */; };
+		ED505BA6913CADB7CA31FC5C /* HealthTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D1E696A5930234D8F2F0A /* HealthTypes.swift */; };
+		EF97B385A759D14D5444912A /* DrinkPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9569918A4AAE4843BC770E7 /* DrinkPickerView.swift */; };
+		F0BCFFA68691A5DE3B7A2487 /* InAppProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */; };
+		F1655CF20DEDEB3B42C070A0 /* SayoneWatchWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F756406811551E28A2B2847 /* SayoneWatchWidgetsBundle.swift */; };
+		F416594152B3254B8B0CC07F /* TodayTotalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2692D0B2B4333160F26842FD /* TodayTotalIntent.swift */; };
+		F67A43E3A8949959FF8AD538 /* PresetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF29ACE5CF575D95051B933 /* PresetEntity.swift */; };
+		F71FBDE54AB4160F2A02DFE0 /* CatalogSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF1068CF3A66DF41D312A1E /* CatalogSync.swift */; };
+		F72CF410FF9ADA1CE2021BE4 /* ConfirmLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49366CA3A65F9C09C10C1EA8 /* ConfirmLogView.swift */; };
+		F7302005FBB8244BCF7D746E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA505C4C13779FFB1FC54D7 /* AppModel.swift */; };
+		FA301BA4AFC296FB262F8470 /* ThisDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B245530475C614AA6370FED /* ThisDevice.swift */; };
+		FC20EE903FF242632D0AE4A0 /* ThisDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B245530475C614AA6370FED /* ThisDevice.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16457B728402ABED0BE31A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00DBB802D8E9AE9AD624B466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE5E3EDF10E4506676601CFA;
+			remoteInfo = SayoneHealthWatchWidgets;
+		};
+		7B0CDC7D0CC2105D27D98073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00DBB802D8E9AE9AD624B466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1353940F3F5C9F81E48BAB;
+			remoteInfo = SayoneHealthWidgets;
+		};
+		CAED9407D3137D7FEA3D75C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00DBB802D8E9AE9AD624B466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3047BCA65BCE00A2893E577F;
+			remoteInfo = SayoneHealthWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2332B4350B6867EC7C1887A0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C05F95F31E406F5D58BB976E /* SayoneHealthWatchWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5246D8451EBBA374A9AF39F5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7EF4DB657BBE31323815CE6F /* SayoneHealthWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB067D26FA583331D2340B8A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				20F9F5DDE13E19920C0FEFE6 /* SayoneHealthWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		031D1E696A5930234D8F2F0A /* HealthTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTypes.swift; sourceTree = "<group>"; };
+		03496123E7CCDD6659653A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		06376B3EC39D411A18C2F033 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		079EC9A427394318476ED214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0933B01A9B8BD0C6CCDFC754 /* TodayListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListSection.swift; sourceTree = "<group>"; };
+		0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoLastIntent.swift; sourceTree = "<group>"; };
+		136248A0338A4649D14BC04D /* TodayRingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRingRow.swift; sourceTree = "<group>"; };
+		14690769262ED6FD40F1CEA8 /* ComplicationHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationHelpView.swift; sourceTree = "<group>"; };
+		1675C37E52CFC67621F92F0D /* HealthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthGateway.swift; sourceTree = "<group>"; };
+		17928ECAC80BAF8B10D9A14F /* DrinkEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkEntity.swift; sourceTree = "<group>"; };
+		17B5A7343E1034FE59DC4C85 /* SayoneWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayoneWidgetsBundle.swift; sourceTree = "<group>"; };
+		1A5A7923A53089B5B11EC080 /* VolumeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeText.swift; sourceTree = "<group>"; };
+		1EB6DB1330560AFE1E1F0ADB /* FavoritesViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViews.swift; sourceTree = "<group>"; };
+		20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRefresher.swift; sourceTree = "<group>"; };
+		253CEC39BA43670F83014882 /* TintPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintPalette.swift; sourceTree = "<group>"; };
+		2692D0B2B4333160F26842FD /* TodayTotalIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTotalIntent.swift; sourceTree = "<group>"; };
+		2F756406811551E28A2B2847 /* SayoneWatchWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayoneWatchWidgetsBundle.swift; sourceTree = "<group>"; };
+		30EFA06DA9599A47260A3C53 /* WatchTodayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTodayRow.swift; sourceTree = "<group>"; };
+		3192057F5B66447D809BDC59 /* QuickLogIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogIntent.swift; sourceTree = "<group>"; };
+		33F348D92FD54712A00E2F70 /* FavoritesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWidget.swift; sourceTree = "<group>"; };
+		359D07F8D1785EF1FF00534E /* PresetGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetGrid.swift; sourceTree = "<group>"; };
+		35D5C878570A5637188672AE /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
+		3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetDisplays.swift; sourceTree = "<group>"; };
+		3CB871ECDDA3A62854EEF494 /* QuickLogViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogViews.swift; sourceTree = "<group>"; };
+		3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		424C6223A0B72ADD55C8878E /* SayoneHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayoneHealth.entitlements; sourceTree = "<group>"; };
+		44A2B60BB0D96B376EFBB493 /* DiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsView.swift; sourceTree = "<group>"; };
+		49366CA3A65F9C09C10C1EA8 /* ConfirmLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogView.swift; sourceTree = "<group>"; };
+		4C9F7449BF00D413AE4F536B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		4F9E09292AFDB3905D79626D /* WatchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
+		55BDF384E8FF95044CF35A8D /* QuickLogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogProvider.swift; sourceTree = "<group>"; };
+		5CF32AB52A314E924481F476 /* QuickLogWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogWidget.swift; sourceTree = "<group>"; };
+		67F5CD0C5080332D5A463BCD /* SayoneHealthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayoneHealthApp.swift; sourceTree = "<group>"; };
+		69C42FD2C72D0595FD8F4145 /* SayoneWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayoneWatchApp.swift; sourceTree = "<group>"; };
+		6E3B74468C4B51ED31367DCA /* WatchAppFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppFeatures.swift; sourceTree = "<group>"; };
+		6E52361437815C3DA807876A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		79096C3118820E6609AAA27C /* LogWaterIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWaterIntent.swift; sourceTree = "<group>"; };
+		7A3259020D8F80962BB05F4F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		7EF4588B1A68F4AD7C4796E4 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		8367919D722DE19F717F75BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		839C736405653D6EFBA85EE2 /* DrinkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkLogger.swift; sourceTree = "<group>"; };
+		876C3AC1E527630078CAD50B /* WatchWidgetFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWidgetFeatures.swift; sourceTree = "<group>"; };
+		8A0FEFEB8AA72C87769F2879 /* PresetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsListView.swift; sourceTree = "<group>"; };
+		8B245530475C614AA6370FED /* ThisDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisDevice.swift; sourceTree = "<group>"; };
+		8B983C865AB4C3FCDB15C4D3 /* VolumePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumePickerView.swift; sourceTree = "<group>"; };
+		8DE05A451818BE9FC43604FD /* ProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCard.swift; sourceTree = "<group>"; };
+		9F531101919FFB1D8779D46E /* SayoneHealthWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayoneHealthWidgets.entitlements; sourceTree = "<group>"; };
+		9FDBF8FA88CE57453C8F059A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A078612F95A9489A8355DD7E /* WaterAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAmount.swift; sourceTree = "<group>"; };
+		A2B0AD074C311B7B7905678B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A390C7B72024B02E88BE478C /* ConfirmLogSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogSheet.swift; sourceTree = "<group>"; };
+		A4FA773B446F3580F7A329D4 /* PresetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetRow.swift; sourceTree = "<group>"; };
+		A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppProcess.swift; sourceTree = "<group>"; };
+		AA435EB9037F8B9D64BA38E7 /* HealthAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAuthorization.swift; sourceTree = "<group>"; };
+		ABF1068CF3A66DF41D312A1E /* CatalogSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSync.swift; sourceTree = "<group>"; };
+		AFE8B9119B12E520EA4F2785 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B0822F2213A42CA6296B7933 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B2B55EEA96C07F91038FC061 /* LogDrinkSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDrinkSheet.swift; sourceTree = "<group>"; };
+		B52A34A52A24411C23F9153F /* SayoneHealthWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SayoneHealthWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA505C4C13779FFB1FC54D7 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		BEAA54E11A419582F42F9577 /* SayoneHealthWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayoneHealthWatch.entitlements; sourceTree = "<group>"; };
+		C33394F9974417B571D5F7B0 /* SayoneShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayoneShortcuts.swift; sourceTree = "<group>"; };
+		C475B20E4B65C997597E609F /* LoggedBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedBanner.swift; sourceTree = "<group>"; };
+		C5EBF28DBC2407B2E7D587EF /* SayoneHealth.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SayoneHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C607DA664F54D68A1E520319 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C89A976145EAA3115B8D547F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9569918A4AAE4843BC770E7 /* DrinkPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPickerView.swift; sourceTree = "<group>"; };
+		C972D7A161945BBA3698B71C /* PresetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetEditorView.swift; sourceTree = "<group>"; };
+		D08E76CCFBF155170B148492 /* DrinkEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkEditorView.swift; sourceTree = "<group>"; };
+		D77F1B447DE3E3204D7F6B7E /* SayoneHealthWatchWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayoneHealthWatchWidgets.entitlements; sourceTree = "<group>"; };
+		DA827255627969FE22F9BAC5 /* AppLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLog.swift; sourceTree = "<group>"; };
+		DC8E084A921AB54A7793B3FA /* SayoneHealthWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SayoneHealthWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E62FBB19BFA765BC14F104 /* TodayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayService.swift; sourceTree = "<group>"; };
+		E30C25FE3BF6A66C3D744C28 /* QuickLogControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogControl.swift; sourceTree = "<group>"; };
+		E4CFA6D3C3F01B035617A0E2 /* LogDrinkIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDrinkIntent.swift; sourceTree = "<group>"; };
+		E58BDEE61A6CB68CECA57293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E9BC0ECF87D455009C58F8BB /* SayoneHealthWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SayoneHealthWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACEB819C75FC97339397CCA /* SiriText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriText.swift; sourceTree = "<group>"; };
+		F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPresetIntent.swift; sourceTree = "<group>"; };
+		F2A40C863E7FAC2AB80C7838 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F496F89D5C9F3D0FD45A9D48 /* DrinksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListView.swift; sourceTree = "<group>"; };
+		F4B24D13D7321D5BE460C94D /* WatchOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchOnboardingView.swift; sourceTree = "<group>"; };
+		F6A0663E18BC5A77A80FB916 /* SayoneCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SayoneCore; path = Packages/SayoneCore; sourceTree = SOURCE_ROOT; };
+		FAF29ACE5CF575D95051B933 /* PresetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetEntity.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		126DAC098C6F53E380C5F71E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E65C1678A9E088171CB9CF9 /* SayoneCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50DF1D135376D3FCE71A207F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80C78AC9048928701C22938F /* SayoneCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D192A3AEF616989B3DACB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87D21C2B4A0856082B2CF63C /* SayoneCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAC6906E026CD4B0072D6BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEDCD9A80685B83932ABAB91 /* SayoneCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		061A628AD7AC8CDDF2C53313 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E2C33410DE47D28E53D1EBB0 /* AppOnly */,
+				ABE9C0428482ACF706271133 /* Core */,
+				680920693EAE31084124105C /* Intents */,
+				3C578668D665273421E96AB8 /* Resources */,
+				95632CDB025A540C8C104229 /* WidgetUI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1808E1357C0E681562E38DC0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8367919D722DE19F717F75BB /* Assets.xcassets */,
+				079EC9A427394318476ED214 /* Info.plist */,
+				BEAA54E11A419582F42F9577 /* SayoneHealthWatch.entitlements */,
+				69C42FD2C72D0595FD8F4145 /* SayoneWatchApp.swift */,
+				6E3B74468C4B51ED31367DCA /* WatchAppFeatures.swift */,
+				765F0631543D30B8011B4A48 /* InfoPlist.strings */,
+				3F2B71634837F1F51F012E86 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3C1564E87F445407E144918C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				06376B3EC39D411A18C2F033 /* Base.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		3C578668D665273421E96AB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3F2B71634837F1F51F012E86 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14690769262ED6FD40F1CEA8 /* ComplicationHelpView.swift */,
+				49366CA3A65F9C09C10C1EA8 /* ConfirmLogView.swift */,
+				C9569918A4AAE4843BC770E7 /* DrinkPickerView.swift */,
+				C475B20E4B65C997597E609F /* LoggedBanner.swift */,
+				A4FA773B446F3580F7A329D4 /* PresetRow.swift */,
+				136248A0338A4649D14BC04D /* TodayRingRow.swift */,
+				8B983C865AB4C3FCDB15C4D3 /* VolumePickerView.swift */,
+				F4B24D13D7321D5BE460C94D /* WatchOnboardingView.swift */,
+				4F9E09292AFDB3905D79626D /* WatchRootView.swift */,
+				30EFA06DA9599A47260A3C53 /* WatchTodayRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41F9E239089613CB59C60188 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBF8FA88CE57453C8F059A /* Assets.xcassets */,
+				E58BDEE61A6CB68CECA57293 /* Info.plist */,
+				424C6223A0B72ADD55C8878E /* SayoneHealth.entitlements */,
+				67F5CD0C5080332D5A463BCD /* SayoneHealthApp.swift */,
+				7A6A1BAC58C36C884CC19F01 /* InfoPlist.strings */,
+				FCDE9D5B08FE0E5474FF7E53 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4880443798FF245ACCFB0E2B /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				1808E1357C0E681562E38DC0 /* App */,
+				F5582EA65B280F90A64296B9 /* Widgets */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		5F5F2279A5DEB3398C29FF24 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				41F9E239089613CB59C60188 /* App */,
+				A75F91CEF77DCBD4E6FDDFBE /* Widgets */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		680920693EAE31084124105C /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				A597F8C1C5ECF4AE38631EBB /* InAppProcess.swift */,
+				FAF29ACE5CF575D95051B933 /* PresetEntity.swift */,
+				3192057F5B66447D809BDC59 /* QuickLogIntent.swift */,
+				F29073CBC158E0133EA3F141 /* SelectPresetIntent.swift */,
+				0B4D6863B2A639B938300A46 /* UndoLastIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		70AC5C6DF22E4D500FD5E0BC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F6A0663E18BC5A77A80FB916 /* SayoneCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		95632CDB025A540C8C104229 /* WidgetUI */ = {
+			isa = PBXGroup;
+			children = (
+				1EB6DB1330560AFE1E1F0ADB /* FavoritesViews.swift */,
+				33F348D92FD54712A00E2F70 /* FavoritesWidget.swift */,
+				55BDF384E8FF95044CF35A8D /* QuickLogProvider.swift */,
+				3CB871ECDDA3A62854EEF494 /* QuickLogViews.swift */,
+				5CF32AB52A314E924481F476 /* QuickLogWidget.swift */,
+			);
+			path = WidgetUI;
+			sourceTree = "<group>";
+		};
+		9D7F3E2BD838AE222FCC7FBD = {
+			isa = PBXGroup;
+			children = (
+				3C1564E87F445407E144918C /* Config */,
+				5F5F2279A5DEB3398C29FF24 /* iOS */,
+				70AC5C6DF22E4D500FD5E0BC /* Packages */,
+				061A628AD7AC8CDDF2C53313 /* Shared */,
+				4880443798FF245ACCFB0E2B /* Watch */,
+				D7BE497ECD3D4B19DDBED6A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A75F91CEF77DCBD4E6FDDFBE /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				03496123E7CCDD6659653A7C /* Info.plist */,
+				E30C25FE3BF6A66C3D744C28 /* QuickLogControl.swift */,
+				9F531101919FFB1D8779D46E /* SayoneHealthWidgets.entitlements */,
+				17B5A7343E1034FE59DC4C85 /* SayoneWidgetsBundle.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		ABE9C0428482ACF706271133 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3FBB43F80DFE4F62CC4A3C89 /* AppGroup.swift */,
+				DA827255627969FE22F9BAC5 /* AppLog.swift */,
+				839C736405653D6EFBA85EE2 /* DrinkLogger.swift */,
+				1675C37E52CFC67621F92F0D /* HealthGateway.swift */,
+				031D1E696A5930234D8F2F0A /* HealthTypes.swift */,
+				3A0AB930A3C0C2988313DE87 /* PresetDisplays.swift */,
+				EACEB819C75FC97339397CCA /* SiriText.swift */,
+				8B245530475C614AA6370FED /* ThisDevice.swift */,
+				253CEC39BA43670F83014882 /* TintPalette.swift */,
+				E2E62FBB19BFA765BC14F104 /* TodayService.swift */,
+				1A5A7923A53089B5B11EC080 /* VolumeText.swift */,
+				20F8B9252BE8A264382E3F20 /* WidgetRefresher.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CC8046EE5BF94DE211C15CB0 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				35D5C878570A5637188672AE /* AppShortcuts.xcstrings */,
+				17928ECAC80BAF8B10D9A14F /* DrinkEntity.swift */,
+				E4CFA6D3C3F01B035617A0E2 /* LogDrinkIntent.swift */,
+				79096C3118820E6609AAA27C /* LogWaterIntent.swift */,
+				C33394F9974417B571D5F7B0 /* SayoneShortcuts.swift */,
+				2692D0B2B4333160F26842FD /* TodayTotalIntent.swift */,
+				A078612F95A9489A8355DD7E /* WaterAmount.swift */,
+			);
+			path = Siri;
+			sourceTree = "<group>";
+		};
+		D7BE497ECD3D4B19DDBED6A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5EBF28DBC2407B2E7D587EF /* SayoneHealth.app */,
+				E9BC0ECF87D455009C58F8BB /* SayoneHealthWatch.app */,
+				B52A34A52A24411C23F9153F /* SayoneHealthWatchWidgets.appex */,
+				DC8E084A921AB54A7793B3FA /* SayoneHealthWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2C33410DE47D28E53D1EBB0 /* AppOnly */ = {
+			isa = PBXGroup;
+			children = (
+				BEA505C4C13779FFB1FC54D7 /* AppModel.swift */,
+				ABF1068CF3A66DF41D312A1E /* CatalogSync.swift */,
+				AA435EB9037F8B9D64BA38E7 /* HealthAuthorization.swift */,
+				CC8046EE5BF94DE211C15CB0 /* Siri */,
+			);
+			path = AppOnly;
+			sourceTree = "<group>";
+		};
+		F5582EA65B280F90A64296B9 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				6E52361437815C3DA807876A /* Info.plist */,
+				D77F1B447DE3E3204D7F6B7E /* SayoneHealthWatchWidgets.entitlements */,
+				2F756406811551E28A2B2847 /* SayoneWatchWidgetsBundle.swift */,
+				876C3AC1E527630078CAD50B /* WatchWidgetFeatures.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		FCDE9D5B08FE0E5474FF7E53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A390C7B72024B02E88BE478C /* ConfirmLogSheet.swift */,
+				44A2B60BB0D96B376EFBB493 /* DiagnosticsView.swift */,
+				D08E76CCFBF155170B148492 /* DrinkEditorView.swift */,
+				F496F89D5C9F3D0FD45A9D48 /* DrinksListView.swift */,
+				AFE8B9119B12E520EA4F2785 /* HistoryView.swift */,
+				B2B55EEA96C07F91038FC061 /* LogDrinkSheet.swift */,
+				7A3259020D8F80962BB05F4F /* OnboardingView.swift */,
+				C972D7A161945BBA3698B71C /* PresetEditorView.swift */,
+				359D07F8D1785EF1FF00534E /* PresetGrid.swift */,
+				8A0FEFEB8AA72C87769F2879 /* PresetsListView.swift */,
+				8DE05A451818BE9FC43604FD /* ProgressCard.swift */,
+				B0822F2213A42CA6296B7933 /* SettingsView.swift */,
+				4C9F7449BF00D413AE4F536B /* ToastView.swift */,
+				0933B01A9B8BD0C6CCDFC754 /* TodayListSection.swift */,
+				7EF4588B1A68F4AD7C4796E4 /* TodayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3047BCA65BCE00A2893E577F /* SayoneHealthWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB7354D4538A3AD16AF8CB0 /* Build configuration list for PBXNativeTarget "SayoneHealthWatch" */;
+			buildPhases = (
+				65B6907270A5EB0A86BA9504 /* Sources */,
+				E0E740E29010F3583C3DDA49 /* Resources */,
+				50DF1D135376D3FCE71A207F /* Frameworks */,
+				2332B4350B6867EC7C1887A0 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				341DBA2704091DDCE67BE1F6 /* PBXTargetDependency */,
+			);
+			name = SayoneHealthWatch;
+			packageProductDependencies = (
+				56B61566C39CC7AE42ECC6B8 /* SayoneCore */,
+			);
+			productName = SayoneHealthWatch;
+			productReference = E9BC0ECF87D455009C58F8BB /* SayoneHealthWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7EFF948A63605FBA2D0A55AD /* SayoneHealth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AF8B31C1BA7F87944770B40 /* Build configuration list for PBXNativeTarget "SayoneHealth" */;
+			buildPhases = (
+				CC6C7AACB361BA02FD550F98 /* Sources */,
+				55563F36233F8DC3590B21EF /* Resources */,
+				5D192A3AEF616989B3DACB44 /* Frameworks */,
+				5246D8451EBBA374A9AF39F5 /* Embed Foundation Extensions */,
+				DB067D26FA583331D2340B8A /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9AF815BA8C1712487F94BAD /* PBXTargetDependency */,
+				6B7F5183F49C622C5C62EA5A /* PBXTargetDependency */,
+			);
+			name = SayoneHealth;
+			packageProductDependencies = (
+				181288DCCF8A7805934E8047 /* SayoneCore */,
+			);
+			productName = SayoneHealth;
+			productReference = C5EBF28DBC2407B2E7D587EF /* SayoneHealth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F1353940F3F5C9F81E48BAB /* SayoneHealthWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01FA47E67AF95C37324831DB /* Build configuration list for PBXNativeTarget "SayoneHealthWidgets" */;
+			buildPhases = (
+				BB69FEBB8AA5E483075FE67B /* Sources */,
+				8BAC6906E026CD4B0072D6BF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SayoneHealthWidgets;
+			packageProductDependencies = (
+				74033BE94B92F75B4129346D /* SayoneCore */,
+			);
+			productName = SayoneHealthWidgets;
+			productReference = DC8E084A921AB54A7793B3FA /* SayoneHealthWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DE5E3EDF10E4506676601CFA /* SayoneHealthWatchWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E0E185AD127D91355C93A5E /* Build configuration list for PBXNativeTarget "SayoneHealthWatchWidgets" */;
+			buildPhases = (
+				3599B8AF83A04BB9AACBB401 /* Sources */,
+				126DAC098C6F53E380C5F71E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SayoneHealthWatchWidgets;
+			packageProductDependencies = (
+				CBF0D4414344E926C93A301B /* SayoneCore */,
+			);
+			productName = SayoneHealthWatchWidgets;
+			productReference = B52A34A52A24411C23F9153F /* SayoneHealthWatchWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00DBB802D8E9AE9AD624B466 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					3047BCA65BCE00A2893E577F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					7EFF948A63605FBA2D0A55AD = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					8F1353940F3F5C9F81E48BAB = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					DE5E3EDF10E4506676601CFA = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AE0E6906B663F3A68E9B5FF4 /* Build configuration list for PBXProject "SayoneHealth" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				ru,
+			);
+			mainGroup = 9D7F3E2BD838AE222FCC7FBD;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A18DB3CF10A4904F8C5CA6B1 /* XCLocalSwiftPackageReference "Packages/SayoneCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D7BE497ECD3D4B19DDBED6A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EFF948A63605FBA2D0A55AD /* SayoneHealth */,
+				8F1353940F3F5C9F81E48BAB /* SayoneHealthWidgets */,
+				3047BCA65BCE00A2893E577F /* SayoneHealthWatch */,
+				DE5E3EDF10E4506676601CFA /* SayoneHealthWatchWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55563F36233F8DC3590B21EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424DF9AC0E19F260420D02FE /* AppShortcuts.xcstrings in Resources */,
+				D5F2AC8BF6BE9E3F882EA495 /* Assets.xcassets in Resources */,
+				0DAAB70F8B2B148BBD800730 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0E740E29010F3583C3DDA49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8229D2E3D796E846A3E8CCA /* AppShortcuts.xcstrings in Resources */,
+				475FB230B0CE477EE072A029 /* Assets.xcassets in Resources */,
+				9217D19D719BE0E801F00247 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3599B8AF83A04BB9AACBB401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8633F993A29BE3CF3A45F8B8 /* AppGroup.swift in Sources */,
+				3A624C148EAD0D972A1F33F9 /* AppLog.swift in Sources */,
+				1377B28F76C62523A8AEBC58 /* DrinkLogger.swift in Sources */,
+				540EE1D4FBB56042053767A9 /* FavoritesViews.swift in Sources */,
+				2148FEF216DC93719DE5CED3 /* FavoritesWidget.swift in Sources */,
+				9A4276B444694F378B838AB5 /* HealthGateway.swift in Sources */,
+				9B74DDD8893FF2361B45E0D6 /* HealthTypes.swift in Sources */,
+				F0BCFFA68691A5DE3B7A2487 /* InAppProcess.swift in Sources */,
+				D1AAB538CB75234C6C27A6B5 /* PresetDisplays.swift in Sources */,
+				5B68F52A6FE2957BD10E2430 /* PresetEntity.swift in Sources */,
+				E1CEAEE5D2A618576A62FB8E /* QuickLogIntent.swift in Sources */,
+				C091F245C80EC8C67ADE05D7 /* QuickLogProvider.swift in Sources */,
+				13DA6383C1F982C84576682F /* QuickLogViews.swift in Sources */,
+				6083BA03E888726C6B6AF7A1 /* QuickLogWidget.swift in Sources */,
+				F1655CF20DEDEB3B42C070A0 /* SayoneWatchWidgetsBundle.swift in Sources */,
+				1654E53F392FE0D86C52E919 /* SelectPresetIntent.swift in Sources */,
+				CB3AD3099C33D98DE6FD15E1 /* SiriText.swift in Sources */,
+				E0E837985CC79CDEA573E6BD /* ThisDevice.swift in Sources */,
+				7E1E078B3086588D86237CDC /* TintPalette.swift in Sources */,
+				AE345B3C43B0599F9DC83B3F /* TodayService.swift in Sources */,
+				249D61893CD0BA354DC0E8BF /* UndoLastIntent.swift in Sources */,
+				56B4DC91A28B0E09014B1021 /* VolumeText.swift in Sources */,
+				D76DE919BDB327EF3D7460AD /* WatchWidgetFeatures.swift in Sources */,
+				0583B9351A308B7848DAB566 /* WidgetRefresher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B6907270A5EB0A86BA9504 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6475588F044144FD38D247B8 /* AppGroup.swift in Sources */,
+				ED2108C423A7FFB761525456 /* AppLog.swift in Sources */,
+				E55D4DFC451E23A30935F6A8 /* AppModel.swift in Sources */,
+				13977D50086FB23D353E2E43 /* CatalogSync.swift in Sources */,
+				A1E0F6EB7DBDC3E1A3591714 /* ComplicationHelpView.swift in Sources */,
+				F72CF410FF9ADA1CE2021BE4 /* ConfirmLogView.swift in Sources */,
+				D54E43B67142FEF8EDF2445F /* DrinkEntity.swift in Sources */,
+				A6692A67C24B7CDC2E0F286F /* DrinkLogger.swift in Sources */,
+				EF97B385A759D14D5444912A /* DrinkPickerView.swift in Sources */,
+				049221DDE1BD634DB9251395 /* HealthAuthorization.swift in Sources */,
+				0B13DE58CB412A9C6272B142 /* HealthGateway.swift in Sources */,
+				462DBF77F7970F293F4A7AC7 /* HealthTypes.swift in Sources */,
+				2DE2827D279D0438A06AE5A6 /* InAppProcess.swift in Sources */,
+				D20E972C822D208B3C0850E1 /* LogDrinkIntent.swift in Sources */,
+				BDA7B6B9990A46D26562E650 /* LogWaterIntent.swift in Sources */,
+				71228AB65AC3B2B4C9FD7F73 /* LoggedBanner.swift in Sources */,
+				0764F5C7F64742321CF9CACE /* PresetDisplays.swift in Sources */,
+				F67A43E3A8949959FF8AD538 /* PresetEntity.swift in Sources */,
+				5C28B323471766EE218C85A8 /* PresetRow.swift in Sources */,
+				49CF2A7A153D7751254C5871 /* QuickLogIntent.swift in Sources */,
+				459849E19EF67A991EF07E27 /* SayoneShortcuts.swift in Sources */,
+				A7C73DD4B6540EAF7FA8FDF2 /* SayoneWatchApp.swift in Sources */,
+				4E28515644F33F6BC6EA8ADF /* SelectPresetIntent.swift in Sources */,
+				D6B6F6A1F676C0C0CAD435D0 /* SiriText.swift in Sources */,
+				FA301BA4AFC296FB262F8470 /* ThisDevice.swift in Sources */,
+				5ED20794752749981A19F893 /* TintPalette.swift in Sources */,
+				47A80F8F07ACEB566E8247B1 /* TodayRingRow.swift in Sources */,
+				96EC58FFA2D94A0DA42A437C /* TodayService.swift in Sources */,
+				25182FE81CD445D48E00BE0F /* TodayTotalIntent.swift in Sources */,
+				8D6721177FB2B4A20038774B /* UndoLastIntent.swift in Sources */,
+				6EA6F152E4B19DE6879467D1 /* VolumePickerView.swift in Sources */,
+				19D796A9073664268FADE617 /* VolumeText.swift in Sources */,
+				E512931193D02390A69855A4 /* WatchAppFeatures.swift in Sources */,
+				1A3E1FDCE1C876E780BE063E /* WatchOnboardingView.swift in Sources */,
+				B1B5041BF9B76FDA2E332550 /* WatchRootView.swift in Sources */,
+				ABA3E2F67E0A1910660EA522 /* WatchTodayRow.swift in Sources */,
+				C9E0DF0790D34D80B0795152 /* WaterAmount.swift in Sources */,
+				520B5BD8CA1F8E7A4C89A33D /* WidgetRefresher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB69FEBB8AA5E483075FE67B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93FD19D316C54EEBCE1FCBF3 /* AppGroup.swift in Sources */,
+				988597102989E5820DC7F423 /* AppLog.swift in Sources */,
+				956C60E67FB327BF7FB63108 /* DrinkLogger.swift in Sources */,
+				9867F7BA61D688DE0E6B7CAA /* FavoritesViews.swift in Sources */,
+				0D4FBCB4889BA066254DC9C1 /* FavoritesWidget.swift in Sources */,
+				492C3448925217EB4A3F3436 /* HealthGateway.swift in Sources */,
+				ED505BA6913CADB7CA31FC5C /* HealthTypes.swift in Sources */,
+				7D5F242ECDD6FD15BCA6D11E /* InAppProcess.swift in Sources */,
+				1C59DEC9A651B5C1208FB170 /* PresetDisplays.swift in Sources */,
+				A039D739827DF3246D588C7B /* PresetEntity.swift in Sources */,
+				A8BA14FFEF4457F1026B3B4F /* QuickLogControl.swift in Sources */,
+				36E07980FC8B5A6F4793CAEC /* QuickLogIntent.swift in Sources */,
+				2539CF3BE128FB5DACD27908 /* QuickLogProvider.swift in Sources */,
+				D6C112572ABAB2A39A039C41 /* QuickLogViews.swift in Sources */,
+				D5313D4D74F9A77FF415E676 /* QuickLogWidget.swift in Sources */,
+				89E88011188DB53C484F02F0 /* SayoneWidgetsBundle.swift in Sources */,
+				B7C09025980A4C9D6151ABB2 /* SelectPresetIntent.swift in Sources */,
+				7552B1D20B5A6AB64246B174 /* SiriText.swift in Sources */,
+				A5D24609AEEBCBBB2C3F244C /* ThisDevice.swift in Sources */,
+				C63E7968C1920A94E1C4E6C8 /* TintPalette.swift in Sources */,
+				C9BCE483AA25206FD3F762C5 /* TodayService.swift in Sources */,
+				5DE7EB77B8F54E400A25B014 /* UndoLastIntent.swift in Sources */,
+				0DFEB509AE944588CD50CB22 /* VolumeText.swift in Sources */,
+				110E0791DEF1ED3845B88860 /* WidgetRefresher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC6C7AACB361BA02FD550F98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7506A9D2B0E9FD9ED6A2E9 /* AppGroup.swift in Sources */,
+				4C2B636F0AD52050148B1502 /* AppLog.swift in Sources */,
+				F7302005FBB8244BCF7D746E /* AppModel.swift in Sources */,
+				F71FBDE54AB4160F2A02DFE0 /* CatalogSync.swift in Sources */,
+				D4BBC8AB20CAB2232696ACAE /* ConfirmLogSheet.swift in Sources */,
+				50A6A1634B0C883F1EBAFB95 /* DiagnosticsView.swift in Sources */,
+				7D8CCA50FA47BE2B2F59A257 /* DrinkEditorView.swift in Sources */,
+				28AEB8324D6C22F1937421CA /* DrinkEntity.swift in Sources */,
+				CAB850C86B1D6D424F959CB0 /* DrinkLogger.swift in Sources */,
+				BF1B22915DDB7DB6FD9FA1EC /* DrinksListView.swift in Sources */,
+				0924A164F911A465C4F2AF65 /* HealthAuthorization.swift in Sources */,
+				378BF246C4E81160F0DC7763 /* HealthGateway.swift in Sources */,
+				76775E7167C6FA83B94952C5 /* HealthTypes.swift in Sources */,
+				AE72D54251266EE575BD7AB6 /* HistoryView.swift in Sources */,
+				23C9B7C6B107C8B3DAF708D4 /* InAppProcess.swift in Sources */,
+				793B3F2D7C138ED0E790E72F /* LogDrinkIntent.swift in Sources */,
+				E9A2E907E59F66A47BA169CC /* LogDrinkSheet.swift in Sources */,
+				DBC3D71804C1D4A2219B2683 /* LogWaterIntent.swift in Sources */,
+				A4ECAE702E3FC7CA15C4DF4B /* OnboardingView.swift in Sources */,
+				97158CD90529C329DD5833D0 /* PresetDisplays.swift in Sources */,
+				64EB58AB44F93D601C98F4FE /* PresetEditorView.swift in Sources */,
+				AC1958841AE7850914C01CFB /* PresetEntity.swift in Sources */,
+				7C3AEA26574B1E6D44DC29FC /* PresetGrid.swift in Sources */,
+				787D07A9EC2AFD634ED82782 /* PresetsListView.swift in Sources */,
+				31220A7402C2F2E04B0B1859 /* ProgressCard.swift in Sources */,
+				AF5AAEB360119B322CC7419F /* QuickLogIntent.swift in Sources */,
+				2E7BD081EAE2E3323CAAFA6A /* SayoneHealthApp.swift in Sources */,
+				A6A8AB7F48DD87C800262D87 /* SayoneShortcuts.swift in Sources */,
+				1BB01F5325C865184E286288 /* SelectPresetIntent.swift in Sources */,
+				85C339B54AB18A387296EF44 /* SettingsView.swift in Sources */,
+				04D214B89F7597CAD6554052 /* SiriText.swift in Sources */,
+				FC20EE903FF242632D0AE4A0 /* ThisDevice.swift in Sources */,
+				806B0EB14C38DEEC3750E836 /* TintPalette.swift in Sources */,
+				050A148A3DE63CD039788933 /* ToastView.swift in Sources */,
+				3F891B68ED7FC127FFB02AEC /* TodayListSection.swift in Sources */,
+				0901644A0162E86584241747 /* TodayService.swift in Sources */,
+				F416594152B3254B8B0CC07F /* TodayTotalIntent.swift in Sources */,
+				ECB6E14F0C11A923F9A14650 /* TodayView.swift in Sources */,
+				401B6CDB4C0DC5518006730B /* UndoLastIntent.swift in Sources */,
+				00EB7CBC47538CD381C016FF /* VolumeText.swift in Sources */,
+				5B1854E68163B09A33D405BC /* WaterAmount.swift in Sources */,
+				915D6386A4A6E67D307AD6B8 /* WidgetRefresher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		341DBA2704091DDCE67BE1F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE5E3EDF10E4506676601CFA /* SayoneHealthWatchWidgets */;
+			targetProxy = 16457B728402ABED0BE31A33 /* PBXContainerItemProxy */;
+		};
+		6B7F5183F49C622C5C62EA5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3047BCA65BCE00A2893E577F /* SayoneHealthWatch */;
+			targetProxy = CAED9407D3137D7FEA3D75C6 /* PBXContainerItemProxy */;
+		};
+		B9AF815BA8C1712487F94BAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1353940F3F5C9F81E48BAB /* SayoneHealthWidgets */;
+			targetProxy = 7B0CDC7D0CC2105D27D98073 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		765F0631543D30B8011B4A48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2B0AD074C311B7B7905678B /* en */,
+				F2A40C863E7FAC2AB80C7838 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7A6A1BAC58C36C884CC19F01 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C607DA664F54D68A1E520319 /* en */,
+				C89A976145EAA3115B8D547F /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0AA5C3B701AADF7C8DE97B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06376B3EC39D411A18C2F033 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		180CA64CC2A9C03731FCC25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iOS/Widgets/SayoneHealthWidgets.entitlements;
+				INFOPLIST_FILE = iOS/Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		22E82064AE636B16D07997B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Watch/Widgets/SayoneHealthWatchWidgets.entitlements;
+				INFOPLIST_FILE = Watch/Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).watchkitapp.widgets";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		42517E7430B987BA55918E24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watch/App/SayoneHealthWatch.entitlements;
+				INFOPLIST_FILE = Watch/App/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).watchkitapp";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		70A5964DC68DAE4C7742D347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watch/App/SayoneHealthWatch.entitlements;
+				INFOPLIST_FILE = Watch/App/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).watchkitapp";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		848AF895F8D85569A8C72170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iOS/Widgets/SayoneHealthWidgets.entitlements;
+				INFOPLIST_FILE = iOS/Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9224E29F06670F04131FF282 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Watch/Widgets/SayoneHealthWatchWidgets.entitlements;
+				INFOPLIST_FILE = Watch/Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX).watchkitapp.widgets";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		99BE7948FBC25100DA10ADAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/App/SayoneHealth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B0F2B7E99EF154352196ED99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06376B3EC39D411A18C2F033 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		F6E059F6958D2FAD9935C3C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/App/SayoneHealth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID_PREFIX)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01FA47E67AF95C37324831DB /* Build configuration list for PBXNativeTarget "SayoneHealthWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848AF895F8D85569A8C72170 /* Debug */,
+				180CA64CC2A9C03731FCC25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E0E185AD127D91355C93A5E /* Build configuration list for PBXNativeTarget "SayoneHealthWatchWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E82064AE636B16D07997B9 /* Debug */,
+				9224E29F06670F04131FF282 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8AF8B31C1BA7F87944770B40 /* Build configuration list for PBXNativeTarget "SayoneHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99BE7948FBC25100DA10ADAA /* Debug */,
+				F6E059F6958D2FAD9935C3C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AE0E6906B663F3A68E9B5FF4 /* Build configuration list for PBXProject "SayoneHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA5C3B701AADF7C8DE97B5D /* Debug */,
+				B0F2B7E99EF154352196ED99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DDB7354D4538A3AD16AF8CB0 /* Build configuration list for PBXNativeTarget "SayoneHealthWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70A5964DC68DAE4C7742D347 /* Debug */,
+				42517E7430B987BA55918E24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A18DB3CF10A4904F8C5CA6B1 /* XCLocalSwiftPackageReference "Packages/SayoneCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SayoneCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		181288DCCF8A7805934E8047 /* SayoneCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayoneCore;
+		};
+		56B61566C39CC7AE42ECC6B8 /* SayoneCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayoneCore;
+		};
+		74033BE94B92F75B4129346D /* SayoneCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayoneCore;
+		};
+		CBF0D4414344E926C93A301B /* SayoneCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayoneCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 00DBB802D8E9AE9AD624B466 /* Project object */;
+}

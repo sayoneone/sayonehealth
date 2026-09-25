@@ -1,0 +1,15 @@
+{
+  "Choose Drink": "Выберите напиток",
+  "Drink": "Напиток",
+  "Drink Button": "Кнопка напитка",
+  "Drink ID": "ID напитка",
+  "Drink Name": "Название напитка",
+  "Favorites": "Избранное",
+  "Log Drink": "Записать напиток",
+  "Logs the chosen drink to Health with one tap.": "Записывает выбранный напиток в «Здоровье» одним нажатием.",
+  "One tap logs the chosen drink to Health.": "Одно нажатие — и напиток записан в «Здоровье».",
+  "Quick Log": "Быстрая запись",
+  "Undo Last Drink": "Отменить последний напиток",
+  "Volume (ml)": "Объём (мл)",
+  "Your first drink buttons, one tap each.": "Первые кнопки напитков — одним нажатием."
+}
