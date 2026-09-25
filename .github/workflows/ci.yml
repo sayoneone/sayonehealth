@@ -223,3 +223,58 @@ jobs:
         with:
           name: screenshots-watch
           path: wshots/
+
+  uitest:
+    name: iPhone UI test (tap preset → total → undo)
+    runs-on: macos-26
+    timeout-minutes: 40
+    env:
+      XCODEGEN_VERSION: "2.46.0"
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode 26 and pick an iPhone simulator
+        run: |
+          XC="$(ls -d /Applications/Xcode_26*.app | sort -V | tail -1)"
+          sudo xcode-select -s "$XC"
+          xcrun simctl list devices available -j > "$RUNNER_TEMP/devices.json"
+          python3 - "$RUNNER_TEMP/devices.json" >> "$GITHUB_ENV" <<'PY'
+          import json, sys
+          d = json.load(open(sys.argv[1]))["devices"]
+          for rt in sorted(d, reverse=True):
+              if "iOS-26" not in rt:
+                  continue
+              devs = [x for x in d[rt] if "iPhone" in x["name"] and x.get("isAvailable", True)]
+              devs.sort(key=lambda x: ("Pro" not in x["name"], x["name"]))
+              if devs:
+                  print(f"IPHONE={devs[0]['udid']}"); print(f"IPHONE_NAME={devs[0]['name']}"); break
+          PY
+      - name: Generate the CI project (adds the UI-test target)
+        run: |
+          for i in 1 2 3; do curl -fsSL -o "$RUNNER_TEMP/xg.zip" "https://github.com/yonaskolb/XcodeGen/releases/download/${XCODEGEN_VERSION}/xcodegen.zip" && break; sleep 5; done
+          if unzip -q -o "$RUNNER_TEMP/xg.zip" -d "$RUNNER_TEMP" && "$RUNNER_TEMP/xcodegen/bin/xcodegen" --version; then
+            export PATH="$RUNNER_TEMP/xcodegen/bin:$PATH"
+          else
+            brew install xcodegen
+          fi
+          xcodegen generate --spec project.ci.yml
+      - name: Run UI test on ${{ env.IPHONE_NAME }}
+        run: |
+          set -o pipefail
+          xcodebuild test -project SayoneHealth.xcodeproj -scheme SayoneHealthUITests -configuration Debug \
+            -destination "platform=iOS Simulator,id=$IPHONE" -derivedDataPath "$RUNNER_TEMP/dd" \
+            -resultBundlePath "$RUNNER_TEMP/UITest.xcresult" \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= \
+            CODE_SIGNING_REQUIRED=NO COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee "$RUNNER_TEMP/uitest.log" | xcbeautify --renderer github-actions
+      - name: Export screenshots from the result bundle
+        if: always()
+        run: |
+          mkdir -p uishots
+          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/UITest.xcresult" --output-path uishots || true
+          ls -la uishots || true
+          grep -hE "error:|failed|XCTAssert" "$RUNNER_TEMP/uitest.log" | sort -u | head -40 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-uitest
+          path: uishots/
