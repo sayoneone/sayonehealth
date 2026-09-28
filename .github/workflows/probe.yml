@@ -1,0 +1,28 @@
+name: Probe runners
+on:
+  workflow_dispatch:
+  push:
+    branches: ['claude/**']
+    paths: ['.github/workflows/probe.yml']
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-26]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Runner info
+        run: |
+          sw_vers
+          echo "--- Xcodes"
+          ls -d /Applications/Xcode*.app
+          xcode-select -p
+          xcodebuild -version
+          echo "--- SDKs"
+          xcodebuild -showsdks
+          echo "--- sims"
+          xcrun simctl list runtimes
+          echo "--- xcodegen"
+          which xcodegen || brew info xcodegen | head -3

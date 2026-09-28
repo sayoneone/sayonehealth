@@ -1,0 +1,192 @@
+name: SayoneHealth
+options:
+  minimumXcodeGenVersion: 2.44.1
+  xcodeVersion: "26.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "18.0"
+    watchOS: "11.0"
+configFiles:
+  Debug: Config/Base.xcconfig
+  Release: Config/Base.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    SWIFT_EMIT_LOC_STRINGS: NO
+    REGISTER_APP_GROUPS: YES
+packages:
+  SayoneCore:
+    path: Packages/SayoneCore
+targets:
+  SayoneHealth:
+    type: application
+    platform: iOS
+    sources:
+      - path: iOS/App
+        excludes: ["**/*.md"]
+      - path: Shared/Core
+        excludes: ["**/*.md"]
+      - path: Shared/Intents
+        excludes: ["**/*.md"]
+      - path: Shared/AppOnly
+        excludes: ["**/*.md"]
+      - path: Shared/Resources
+        excludes: ["**/*.md"]
+    dependencies:
+      - package: SayoneCore
+      - target: SayoneHealthWidgets
+      - target: SayoneHealthWatch
+    info:
+      path: iOS/App/Info.plist
+      properties:
+        CFBundleDisplayName: SayoneHealth
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        CFBundleURLTypes:
+          - CFBundleURLName: $(BUNDLE_ID_PREFIX)
+            CFBundleURLSchemes: [sayonehealth]
+        NSHealthShareUsageDescription: "SayoneHealth reads your water intake to show today's total from all your devices."
+        NSHealthUpdateUsageDescription: "SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health."
+        INAlternativeAppNames:
+          - INAlternativeAppName: Sayone
+          - INAlternativeAppName: Сейон
+          - INAlternativeAppName: Сейон Хелс
+        SayoneAppGroupID: $(APP_GROUP_ID)
+    entitlements:
+      path: iOS/App/SayoneHealth.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_ID_PREFIX)
+        TARGETED_DEVICE_FAMILY: "1"
+    scheme: {}
+  SayoneHealthWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: iOS/Widgets
+        excludes: ["**/*.md"]
+      - path: Shared/Core
+        excludes: ["**/*.md"]
+      - path: Shared/Intents
+        excludes: ["**/*.md"]
+      - path: Shared/WidgetUI
+        excludes: ["**/*.md"]
+      - path: Shared/Resources
+        excludes: ["**/*.md"]
+    dependencies:
+      - package: SayoneCore
+    info:
+      path: iOS/Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: SayoneHealth
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        NSHealthShareUsageDescription: "SayoneHealth reads your water intake to show today's total from all your devices."
+        NSHealthUpdateUsageDescription: "SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health."
+        SayoneAppGroupID: $(APP_GROUP_ID)
+    entitlements:
+      path: iOS/Widgets/SayoneHealthWidgets.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_ID_PREFIX).widgets
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+  SayoneHealthWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: Watch/App
+        excludes: ["**/*.md"]
+      - path: Shared/Core
+        excludes: ["**/*.md"]
+      - path: Shared/Intents
+        excludes: ["**/*.md"]
+      - path: Shared/AppOnly
+        excludes: ["**/*.md"]
+      - path: Shared/Resources
+        excludes: ["**/*.md"]
+    dependencies:
+      - package: SayoneCore
+      - target: SayoneHealthWatchWidgets
+    info:
+      path: Watch/App/Info.plist
+      properties:
+        CFBundleDisplayName: SayoneHealth
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: $(BUNDLE_ID_PREFIX)
+        WKRunsIndependentlyOfCompanionApp: true
+        CFBundleURLTypes:
+          - CFBundleURLName: $(BUNDLE_ID_PREFIX).watchkitapp
+            CFBundleURLSchemes: [sayonehealth]
+        NSHealthShareUsageDescription: "SayoneHealth reads your water intake to show today's total from all your devices."
+        NSHealthUpdateUsageDescription: "SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health."
+        INAlternativeAppNames:
+          - INAlternativeAppName: Sayone
+          - INAlternativeAppName: Сейон
+          - INAlternativeAppName: Сейон Хелс
+        SayoneAppGroupID: $(APP_GROUP_ID)
+    entitlements:
+      path: Watch/App/SayoneHealthWatch.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_ID_PREFIX).watchkitapp
+    scheme: {}
+  SayoneHealthWatchWidgets:
+    type: app-extension
+    platform: watchOS
+    sources:
+      - path: Watch/Widgets
+        excludes: ["**/*.md"]
+      - path: Shared/Core
+        excludes: ["**/*.md"]
+      - path: Shared/Intents
+        excludes: ["**/*.md"]
+      - path: Shared/WidgetUI
+        excludes: ["**/*.md"]
+      - path: Shared/Resources
+        excludes: ["**/*.md"]
+    dependencies:
+      - package: SayoneCore
+    info:
+      path: Watch/Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: SayoneHealth
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        NSHealthShareUsageDescription: "SayoneHealth reads your water intake to show today's total from all your devices."
+        NSHealthUpdateUsageDescription: "SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health."
+        SayoneAppGroupID: $(APP_GROUP_ID)
+    entitlements:
+      path: Watch/Widgets/SayoneHealthWatchWidgets.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.security.application-groups: [$(APP_GROUP_ID)]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_ID_PREFIX).watchkitapp.widgets

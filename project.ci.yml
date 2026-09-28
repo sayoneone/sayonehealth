@@ -1,0 +1,26 @@
+# CI-only spec: the real project plus a UI-test target. Never used for the committed .xcodeproj.
+include:
+  - project.yml
+targets:
+  SayoneHealthUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: iOS/UITests
+    dependencies:
+      - target: SayoneHealth
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(BUNDLE_ID_PREFIX).uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: SayoneHealth
+schemes:
+  SayoneHealthUITests:
+    build:
+      targets:
+        SayoneHealth: all
+        SayoneHealthUITests: [test]
+    test:
+      config: Debug
+      targets:
+        - SayoneHealthUITests

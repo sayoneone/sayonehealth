@@ -1,0 +1,4 @@
+/* Russian usage strings (ARCHITECTURE.md §6.1). */
+"CFBundleDisplayName" = "SayoneHealth";
+"NSHealthShareUsageDescription" = "SayoneHealth читает данные о воде, чтобы показывать итог за день со всех ваших устройств.";
+"NSHealthUpdateUsageDescription" = "SayoneHealth сохраняет выпитое (воду, кофеин, калории, сахар) в приложение «Здоровье».";

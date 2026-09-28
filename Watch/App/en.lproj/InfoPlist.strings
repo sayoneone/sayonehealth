@@ -1,0 +1,4 @@
+/* English usage strings; they repeat the values in project.yml (ARCHITECTURE.md §6.1). */
+"CFBundleDisplayName" = "SayoneHealth";
+"NSHealthShareUsageDescription" = "SayoneHealth reads your water intake to show today's total from all your devices.";
+"NSHealthUpdateUsageDescription" = "SayoneHealth saves the drinks you log (water, caffeine, energy, sugar) to Apple Health.";

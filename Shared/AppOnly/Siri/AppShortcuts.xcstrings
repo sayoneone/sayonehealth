@@ -1,0 +1,76 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "How much did I drink in ${applicationName}" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringSet" : { "state" : "translated", "values" : [
+          "How much did I drink in ${applicationName}",
+          "Today's water in ${applicationName}"
+        ] } },
+        "ru" : { "stringSet" : { "state" : "translated", "values" : [
+          "Сколько я выпил в ${applicationName}",
+          "Сколько я выпила в ${applicationName}",
+          "Сколько воды сегодня в ${applicationName}",
+          "${applicationName} итог за день"
+        ] } }
+      }
+    },
+    "Log ${drink} in ${applicationName}" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringSet" : { "state" : "translated", "values" : [
+          "Log ${drink} in ${applicationName}",
+          "I drank ${drink} in ${applicationName}",
+          "${applicationName} ${drink}",
+          "Log a drink in ${applicationName}"
+        ] } },
+        "ru" : { "stringSet" : { "state" : "translated", "values" : [
+          "Запиши ${drink} в ${applicationName}",
+          "Добавь ${drink} в ${applicationName}",
+          "Я выпил ${drink} в ${applicationName}",
+          "Я выпила ${drink} в ${applicationName}",
+          "${applicationName} ${drink}",
+          "Запиши напиток в ${applicationName}"
+        ] } }
+      }
+    },
+    "Log water in ${applicationName}" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringSet" : { "state" : "translated", "values" : [
+          "Log water in ${applicationName}",
+          "Add water in ${applicationName}",
+          "Log ${amount} of water in ${applicationName}",
+          "I drank ${amount} of water in ${applicationName}"
+        ] } },
+        "ru" : { "stringSet" : { "state" : "translated", "values" : [
+          "Запиши воду в ${applicationName}",
+          "Добавь воду в ${applicationName}",
+          "Запиши ${amount} воды в ${applicationName}",
+          "Добавь ${amount} воды в ${applicationName}",
+          "Я выпил ${amount} воды в ${applicationName}",
+          "Я выпила ${amount} воды в ${applicationName}",
+          "Выпил воды в ${applicationName}",
+          "Выпила воды в ${applicationName}",
+          "${applicationName} вода"
+        ] } }
+      }
+    },
+    "Undo last drink in ${applicationName}" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringSet" : { "state" : "translated", "values" : [
+          "Undo last drink in ${applicationName}",
+          "Delete last drink in ${applicationName}"
+        ] } },
+        "ru" : { "stringSet" : { "state" : "translated", "values" : [
+          "Отмени последний напиток в ${applicationName}",
+          "Удали последний напиток в ${applicationName}",
+          "${applicationName} отмена"
+        ] } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
