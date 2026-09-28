@@ -28,6 +28,16 @@ final class SayoneHealthUITests: XCTestCase {
         app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " из ")).firstMatch
     }
 
+    /// Polls every 0.2 s (XCTNSPredicateExpectation polls only once per second).
+    private func waitForLabel(_ element: XCUIElement, equalTo value: String, timeout: TimeInterval) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if element.exists && element.label == value { return true }
+            RunLoop.current.run(until: Date().addingTimeInterval(0.2))
+        }
+        return false
+    }
+
     func testTapPresetLogsAndUndoRestoresTotal() {
         let app = launchApp()
         let progress = progressLabel(app)
@@ -41,22 +51,20 @@ final class SayoneHealthUITests: XCTestCase {
         XCTAssertTrue(preset.waitForExistence(timeout: 5), "the «Вода · 250 мл» preset tile should exist")
         preset.tap()
 
-        let toast = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Записано")).firstMatch
-        XCTAssertTrue(toast.waitForExistence(timeout: 10), "the «Записано · …» toast should appear")
-        let changed = NSPredicate(format: "label != %@", before)
-        expectation(for: changed, evaluatedWith: progressLabel(app))
-        waitForExpectations(timeout: 10)
-        let after = progressLabel(app).label
-        XCTAssertNotEqual(before, after)
-        snapshot("02-after-log", app)
-
+        // The toast with «Отменить» lives only UndoPolicy.toastDuration (5 s): check the total and undo
+        // straight away, without screenshots or 1-second expectation polling in between.
         let undo = app.buttons["Отменить"]
-        XCTAssertTrue(undo.waitForExistence(timeout: 5), "the toast should offer «Отменить»")
+        XCTAssertTrue(undo.waitForExistence(timeout: 4), "the «Записано · …» toast should offer «Отменить»")
+        XCTAssertNotEqual(progressLabel(app).label, before, "the total should change as soon as the drink is logged")
         undo.tap()
-        let restored = NSPredicate(format: "label == %@", before)
-        expectation(for: restored, evaluatedWith: progressLabel(app))
-        waitForExpectations(timeout: 10)
+        XCTAssertTrue(waitForLabel(progressLabel(app), equalTo: before, timeout: 10), "«Отменить» should restore the total")
         snapshot("03-after-undo", app)
+
+        // Log once more only to capture the logged state (new total + toast) for the CI artifact.
+        preset.tap()
+        let toast = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Записано")).firstMatch
+        XCTAssertTrue(toast.waitForExistence(timeout: 4), "the «Записано · …» toast should appear again")
+        snapshot("02-after-log", app)
 
         app.swipeUp()
         snapshot("04-scrolled", app)
